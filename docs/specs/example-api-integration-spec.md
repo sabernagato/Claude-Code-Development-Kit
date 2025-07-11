@@ -1,51 +1,51 @@
-# API Integration Specification: Example External Service
+# API 集成规范：示例外部服务
 
-## Overview
+## 概述
 
-This document outlines the integration with an external service API. This serves as a template for documenting API integration specifications.
+本文档概述了与外部服务 API 的集成。这作为 API 集成规范文档的模板。
 
-### Integration Objectives
-- Connect to external service for data processing
-- Implement error handling and retry logic
-- Ensure secure API communication
-- Maintain performance and reliability
+### 集成目标
+- 连接外部服务进行数据处理
+- 实现错误处理和重试逻辑
+- 确保安全的 API 通信
+- 保持性能和可靠性
 
-### External Service Details
-- **Service**: Example Data Processing API
-- **Version**: v2.1
-- **Authentication**: API Key + OAuth2
-- **Rate Limits**: 1000 requests/minute
-- **Documentation**: https://api.example.com/docs
+### 外部服务详情
+- **服务**：示例数据处理 API
+- **版本**：v2.1
+- **身份验证**：API 密钥 + OAuth2
+- **速率限制**：1000 请求/分钟
+- **文档**：https://api.example.com/docs
 
-## Architecture
+## 架构
 
-### Integration Flow
+### 集成流程
 ```
-Client Request → Input Validation → External API Call → Response Processing → Client Response
-```
-
-### Error Handling Flow
-```
-API Error → Retry Logic → Fallback Strategy → Error Logging → Client Error Response
+客户端请求 → 输入验证 → 外部 API 调用 → 响应处理 → 客户端响应
 ```
 
-## Technical Specifications
+### 错误处理流程
+```
+API 错误 → 重试逻辑 → 回退策略 → 错误日志 → 客户端错误响应
+```
 
-### 1. API Client Implementation
+## 技术规范
 
-#### Configuration
+### 1. API 客户端实现
+
+#### 配置
 ```python
-# Configuration settings
+# 配置设置
 API_BASE_URL = "https://api.example.com/v2"
 API_KEY = "your-api-key"
 OAUTH_CLIENT_ID = "your-client-id"
 OAUTH_CLIENT_SECRET = "your-client-secret"
-REQUEST_TIMEOUT = 30  # seconds
+REQUEST_TIMEOUT = 30  # 秒
 MAX_RETRIES = 3
-RETRY_DELAY = 1  # seconds
+RETRY_DELAY = 1  # 秒
 ```
 
-#### Client Class
+#### 客户端类
 ```python
 import aiohttp
 import asyncio
@@ -70,7 +70,7 @@ class ExternalAPIClient:
             await self.session.close()
     
     async def authenticate(self) -> None:
-        """Authenticate with OAuth2 to get access token"""
+        """使用 OAuth2 进行身份验证以获取访问令牌"""
         auth_url = f"{self.base_url}/oauth/token"
         auth_data = {
             "grant_type": "client_credentials",
@@ -83,19 +83,19 @@ class ExternalAPIClient:
                 auth_response = await response.json()
                 self.access_token = auth_response["access_token"]
             else:
-                raise APIAuthenticationError("Failed to authenticate with external API")
+                raise APIAuthenticationError("无法与外部 API 进行身份验证")
 ```
 
-### 2. API Operations
+### 2. API 操作
 
-#### Data Processing Operation
+#### 数据处理操作
 ```python
 async def process_data(
     self, 
     data: Dict[str, Any], 
     options: Optional[Dict[str, Any]] = None
 ) -> Dict[str, Any]:
-    """Process data using external API"""
+    """使用外部 API 处理数据"""
     endpoint = f"{self.base_url}/process"
     headers = {
         "Authorization": f"Bearer {self.access_token}",
@@ -119,11 +119,11 @@ async def process_data(
                 if response.status == 200:
                     return await response.json()
                 elif response.status == 429:
-                    # Rate limit exceeded
+                    # 超出速率限制
                     await asyncio.sleep(RETRY_DELAY * (2 ** attempt))
                     continue
                 elif response.status == 401:
-                    # Token expired, re-authenticate
+                    # 令牌过期，重新身份验证
                     await self.authenticate()
                     continue
                 else:
@@ -131,37 +131,37 @@ async def process_data(
                     
         except aiohttp.ClientError as e:
             if attempt == MAX_RETRIES - 1:
-                raise ExternalAPIError(f"API request failed after {MAX_RETRIES} attempts: {str(e)}")
+                raise ExternalAPIError(f"API 请求在 {MAX_RETRIES} 次尝试后失败: {str(e)}")
             await asyncio.sleep(RETRY_DELAY * (2 ** attempt))
     
-    raise ExternalAPIError("Maximum retry attempts exceeded")
+    raise ExternalAPIError("超出最大重试次数")
 ```
 
-### 3. Error Handling
+### 3. 错误处理
 
-#### Custom Exceptions
+#### 自定义异常
 ```python
 class ExternalAPIError(Exception):
-    """Base exception for external API errors"""
+    """外部 API 错误的基础异常"""
     pass
 
 class APIAuthenticationError(ExternalAPIError):
-    """Authentication with external API failed"""
+    """与外部 API 的身份验证失败"""
     pass
 
 class APIRateLimitError(ExternalAPIError):
-    """Rate limit exceeded"""
+    """超出速率限制"""
     pass
 
 class APITimeoutError(ExternalAPIError):
-    """Request timeout"""
+    """请求超时"""
     pass
 ```
 
-#### Error Response Mapping
+#### 错误响应映射
 ```python
 def map_api_error(status_code: int, response_data: Dict[str, Any]) -> ExternalAPIError:
-    """Map API error responses to custom exceptions"""
+    """将 API 错误响应映射到自定义异常"""
     error_mapping = {
         400: ("Bad Request", ExternalAPIError),
         401: ("Unauthorized", APIAuthenticationError),
@@ -172,49 +172,49 @@ def map_api_error(status_code: int, response_data: Dict[str, Any]) -> ExternalAP
     
     error_message, exception_class = error_mapping.get(
         status_code, 
-        (f"Unknown error (status: {status_code})", ExternalAPIError)
+        (f"未知错误 (状态: {status_code})", ExternalAPIError)
     )
     
-    # Include API error details if available
+    # 如果可用，包含 API 错误详情
     if "error" in response_data:
         error_message += f": {response_data['error']}"
     
     return exception_class(error_message)
 ```
 
-## Implementation Plan
+## 实施计划
 
-### Phase 1: Basic Integration (Week 1)
-- [ ] API client implementation
-- [ ] Authentication flow
-- [ ] Basic data processing endpoint
-- [ ] Error handling structure
-- [ ] Configuration management
+### 第 1 阶段：基础集成（第 1 周）
+- [ ] API 客户端实现
+- [ ] 身份验证流程
+- [ ] 基本数据处理端点
+- [ ] 错误处理结构
+- [ ] 配置管理
 
-### Phase 2: Advanced Features (Week 2)
-- [ ] Retry logic with exponential backoff
-- [ ] Rate limiting handling
-- [ ] Connection pooling
-- [ ] Response caching
-- [ ] Monitoring and logging
+### 第 2 阶段：高级功能（第 2 周）
+- [ ] 指数退避的重试逻辑
+- [ ] 速率限制处理
+- [ ] 连接池
+- [ ] 响应缓存
+- [ ] 监控和日志
 
-### Phase 3: Testing & Optimization (Week 3)
-- [ ] Unit tests for API client
-- [ ] Integration tests with mocked API
-- [ ] Performance testing
-- [ ] Error scenario testing
-- [ ] Documentation updates
+### 第 3 阶段：测试与优化（第 3 周）
+- [ ] API 客户端的单元测试
+- [ ] 使用模拟 API 的集成测试
+- [ ] 性能测试
+- [ ] 错误场景测试
+- [ ] 文档更新
 
-### Phase 4: Production Deployment (Week 4)
-- [ ] Production configuration
-- [ ] Monitoring setup
-- [ ] Performance optimization
-- [ ] Security audit
-- [ ] Deployment and rollout
+### 第 4 阶段：生产部署（第 4 周）
+- [ ] 生产配置
+- [ ] 监控设置
+- [ ] 性能优化
+- [ ] 安全审计
+- [ ] 部署和推出
 
-## API Endpoints
+## API 端点
 
-### Process Data
+### 处理数据
 ```http
 POST /api/external/process
 Content-Type: application/json
@@ -232,7 +232,7 @@ Authorization: Bearer {access_token}
 }
 ```
 
-**Response:**
+**响应：**
 ```json
 {
     "success": true,
@@ -247,13 +247,13 @@ Authorization: Bearer {access_token}
 }
 ```
 
-### Get Processing Status
+### 获取处理状态
 ```http
 GET /api/external/status/{request_id}
 Authorization: Bearer {access_token}
 ```
 
-**Response:**
+**响应：**
 ```json
 {
     "request_id": "req_abc123",
@@ -267,43 +267,43 @@ Authorization: Bearer {access_token}
 }
 ```
 
-## Performance Considerations
+## 性能考虑
 
-### Connection Management
-- Use connection pooling for multiple requests
-- Implement connection timeouts
-- Monitor connection health
+### 连接管理
+- 为多个请求使用连接池
+- 实现连接超时
+- 监控连接健康状态
 
-### Caching Strategy
-- Cache authentication tokens
-- Cache frequently requested data
-- Implement cache invalidation
+### 缓存策略
+- 缓存身份验证令牌
+- 缓存频繁请求的数据
+- 实现缓存失效
 
-### Rate Limiting
-- Implement client-side rate limiting
-- Queue requests during rate limit periods
-- Monitor rate limit status
+### 速率限制
+- 实现客户端速率限制
+- 在速率限制期间对请求进行排队
+- 监控速率限制状态
 
-## Security Considerations
+## 安全考虑
 
-### Authentication
-- Secure storage of API keys and secrets
-- Token refresh mechanism
-- Regular credential rotation
+### 身份验证
+- API 密钥和秘密的安全存储
+- 令牌刷新机制
+- 定期凭据轮换
 
-### Data Protection
-- Encrypt sensitive data in transit
-- Validate all input data
-- Sanitize API responses
+### 数据保护
+- 加密传输中的敏感数据
+- 验证所有输入数据
+- 清理 API 响应
 
-### Monitoring
-- Log all API interactions
-- Monitor for suspicious activity
-- Track error rates and patterns
+### 监控
+- 记录所有 API 交互
+- 监控可疑活动
+- 跟踪错误率和模式
 
-## Testing Strategy
+## 测试策略
 
-### Unit Tests
+### 单元测试
 ```python
 import pytest
 from unittest.mock import AsyncMock, patch
@@ -323,22 +323,22 @@ async def test_successful_data_processing():
         assert result["result"] == "processed"
 ```
 
-### Integration Tests
-- Test with actual API endpoints (staging environment)
-- Test error scenarios and recovery
-- Test rate limiting behavior
-- Test authentication flow
+### 集成测试
+- 使用实际 API 端点进行测试（暂存环境）
+- 测试错误场景和恢复
+- 测试速率限制行为
+- 测试身份验证流程
 
-## Monitoring and Logging
+## 监控和日志
 
-### Metrics to Track
-- Request success/failure rates
-- Response times
-- Rate limit status
-- Authentication failures
-- Error distribution
+### 需要跟踪的指标
+- 请求成功/失败率
+- 响应时间
+- 速率限制状态
+- 身份验证失败
+- 错误分布
 
-### Logging Format
+### 日志格式
 ```json
 {
     "timestamp": "2024-01-15T10:30:00Z",
@@ -353,45 +353,45 @@ async def test_successful_data_processing():
 }
 ```
 
-## Configuration
+## 配置
 
-### Environment Variables
+### 环境变量
 ```bash
-# External API Configuration
+# 外部 API 配置
 EXTERNAL_API_BASE_URL=https://api.example.com/v2
 EXTERNAL_API_KEY=your-api-key
 EXTERNAL_OAUTH_CLIENT_ID=your-client-id
 EXTERNAL_OAUTH_CLIENT_SECRET=your-client-secret
 
-# Request Configuration
+# 请求配置
 EXTERNAL_API_TIMEOUT=30
 EXTERNAL_API_MAX_RETRIES=3
 EXTERNAL_API_RETRY_DELAY=1
 
-# Caching
+# 缓存
 EXTERNAL_API_CACHE_TTL=300
 REDIS_URL=redis://localhost:6379
 ```
 
-## Related Files
+## 相关文件
 
-After implementation, update this list with actual file paths:
-- `src/integrations/external_api.py` - Main API client
-- `src/integrations/exceptions.py` - Custom exceptions
-- `src/api/routes/external.py` - Integration endpoints
-- `tests/test_external_api.py` - Integration tests
-- `config/external_api.py` - Configuration settings
+实施后，使用实际文件路径更新此列表：
+- `src/integrations/external_api.py` - 主 API 客户端
+- `src/integrations/exceptions.py` - 自定义异常
+- `src/api/routes/external.py` - 集成端点
+- `tests/test_external_api.py` - 集成测试
+- `config/external_api.py` - 配置设置
 
-## Success Criteria
+## 成功标准
 
-- [ ] All API operations functional
-- [ ] Error handling robust
-- [ ] Performance requirements met
-- [ ] Security requirements satisfied
-- [ ] Monitoring and logging implemented
-- [ ] Tests passing (unit and integration)
-- [ ] Documentation complete
+- [ ] 所有 API 操作正常运行
+- [ ] 错误处理健壮
+- [ ] 满足性能要求
+- [ ] 满足安全要求
+- [ ] 实施监控和日志
+- [ ] 测试通过（单元和集成）
+- [ ] 文档完整
 
 ---
 
-*This API integration specification template provides a comprehensive approach to documenting external service integrations. Customize based on your specific API requirements and integration needs.*
+*本 API 集成规范模板提供了一种全面的方法来记录外部服务集成。根据您的具体 API 要求和集成需求进行自定义。*

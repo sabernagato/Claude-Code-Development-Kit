@@ -8,9 +8,9 @@
 set -euo pipefail
 
 # Configuration
-REPO_OWNER="peterkrueck"
+REPO_OWNER="sabernagato"
 REPO_NAME="Claude-Code-Development-Kit"
-BRANCH="main"
+BRANCH="zh"
 
 # Colors for output
 BLUE='\033[0;34m'

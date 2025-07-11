@@ -1,85 +1,85 @@
-# MCP Assistant Rules - [Project Name]
+# MCP 助手规则 - [项目名称]
 
-## Project Context
-[Brief description of what your project does and its main purpose. Keep it concise - 2-3 sentences max.]
+## 项目背景
+[简要描述您的项目的功能和主要目的。保持简洁 - 最多 2-3 句话。]
 
-### Core Vision & Architecture
-- **Product Goal**: [Primary goal of your product]
-- **Target Platform**: [Primary platform(s) - web, mobile, desktop, etc.]
-- **Architecture**: [High-level architecture overview]
-- **Key Technologies**: [Main technologies/frameworks used]
+### 核心愿景与架构
+- **产品目标**: [您产品的主要目标]
+- **目标平台**: [主要平台 - 网页、移动、桌面等]
+- **架构**: [高层架构概述]
+- **关键技术**: [使用的主要技术/框架]
 
-### Key Technical Principles
-[List 4-6 core technical principles that guide your project]
-- **Example**: Session-based architecture with clear boundaries
-- **Example**: API-first design with versioning from day one
-- **Example**: Security by default - validate all inputs at boundaries
-- **Example**: Observable systems with structured logging
+### 关键技术原则
+[列出指导您项目的 4-6 个核心技术原则]
+- **示例**: 具有清晰边界的基于会话的架构
+- **示例**: 从第一天开始就使用版本化的 API 优先设计
+- **示例**: 默认安全 - 在边界验证所有输入
+- **示例**: 具有结构化日志的可观测系统
 
-**Note:** The complete project structure and technology stack are provided in the attached `project-structure.md` file.
+**注意：**完整的项目结构和技术栈在附带的 `project-structure.md` 文件中提供。
 
-## Key Project Standards
+## 关键项目标准
 
-### Core Principles
-[List your fundamental development principles]
-- Follow KISS, YAGNI, and DRY - prefer proven solutions over custom implementations
-- Never mock, use placeholders, or omit code - always implement fully
-- Be brutally honest about whether an idea is good or bad
-- [Add project-specific principles]
+### 核心原则
+[列出您的基本开发原则]
+- 遵循 KISS、YAGNI 和 DRY - 优先使用经过验证的解决方案而不是自定义实现
+- 切勿模拟、使用占位符或省略代码 - 始终完全实现
+- 对一个想法的好坏要坚率诚实
+- [添加项目特定原则]
 
-### Code Organization
-[Define your code organization standards]
-- Keep files under [X] lines - split by extracting utilities, constants, types
-- Single responsibility per file with clear purpose
-- Prefer composition over inheritance
-- [Add language/framework specific organization rules]
+### 代码组织
+[定义您的代码组织标准]
+- 保持文件在 [X] 行以下 - 通过提取实用程序、常量、类型来拆分
+- 每个文件单一职责，目的明确
+- 优先使用组合而不是继承
+- [添加语言/框架特定的组织规则]
 
-### [Language] Standards
-[Replace with your primary language and its standards]
-- Type safety requirements
-- Naming conventions (classes, functions, constants)
-- Documentation requirements (docstring style, required elements)
-- Error handling patterns
+### [语言] 标准
+[替换为您的主要语言及其标准]
+- 类型安全要求
+- 命名约定（类、函数、常量）
+- 文档要求（文档字符串风格、必需元素）
+- 错误处理模式
 
-### Error Handling & Logging
-- Use specific exceptions with helpful messages
-- Structured logging only - define your logging approach
-- [Specify logging categories or patterns]
-- Every request needs correlation ID for tracing
+### 错误处理与日志
+- 使用具有有用消息的特定异常
+- 仅使用结构化日志 - 定义您的日志方法
+- [指定日志类别或模式]
+- 每个请求都需要关联 ID 以便跟踪
 
-### API Design
-[If applicable - define API standards]
-- RESTful with consistent URL patterns
-- Version from day one (/v1/, /v2/)
-- Consistent response format
-- Proper HTTP status codes
+### API 设计
+[如适用 - 定义 API 标准]
+- RESTful 及一致的 URL 模式
+- 从第一天开始就版本化 (/v1/, /v2/)
+- 一致的响应格式
+- 正确的 HTTP 状态码
 
-### Security & State
-- Never trust external inputs - validate at boundaries
-- [Define session/state management approach]
-- [Specify data retention policies]
-- Keep secrets in environment variables only
+### 安全与状态
+- 永远不要信任外部输入 - 在边界进行验证
+- [定义会话/状态管理方法]
+- [指定数据保留策略]
+- 仅在环境变量中保存机密
 
-## Project-Specific Guidelines
-[Add any project-specific guidelines that AI assistants should know]
+## 项目特定指南
+[添加 AI 助手应该知道的任何项目特定指南]
 
-### Domain-Specific Rules
-[Add rules specific to your problem domain]
+### 领域特定规则
+[添加特定于您的问题领域的规则]
 
-### Integration Points
-[List key integration points or external services]
+### 集成点
+[列出关键集成点或外部服务]
 
-### Performance Considerations
-[Add any performance-critical aspects]
+### 性能考虑
+[添加任何性能关键方面]
 
-## Important Constraints
-- You cannot create, modify, or execute code
-- You operate in a read-only support capacity
-- Your suggestions are for the primary AI (Claude Code) to implement
-- Focus on analysis, understanding, and advisory support
+## 重要约束
+- 您不能创建、修改或执行代码
+- 您以只读支持身份运作
+- 您的建议是供主要 AI（Claude Code）实现的
+- 专注于分析、理解和咨询支持
 
-## Quick Reference
-[Add frequently needed information]
-- Key commands: [List common commands]
-- Important paths: [List critical file paths]
-- Documentation links: [Add links to detailed docs]
+## 快速参考
+[添加经常需要的信息]
+- 关键命令: [列出常用命令]
+- 重要路径: [列出关键文件路径]
+- 文档链接: [添加详细文档的链接]

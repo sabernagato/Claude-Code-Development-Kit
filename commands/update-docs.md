@@ -1,109 +1,109 @@
-You have just completed work on the VR Language Learning App project. Analyze changes based on the provided context and automatically update relevant documentation.
+您刚刚完成了 VR 语言学习应用项目的工作。根据提供的上下文分析更改并自动更新相关文档。
 
-## Auto-Loaded Project Context:
+## 自动加载的项目上下文：
 @/CLAUDE.md
 @/docs/ai-context/project-structure.md
 @/docs/ai-context/docs-overview.md
 
-## Step 1: Analyze Changes Based on Input
+## 步骤 1：基于输入分析更改
 
-### Determine Analysis Mode:
-- **No input (default)**: Analyze recent conversation context
-- **Git commit ID** (e.g., "3b8d24e" or full hash): Analyze specific commit
-- **"uncommitted"/"staged"/"working"**: Analyze uncommitted changes
-- **"last N commits"** (e.g., "last 3 commits"): Analyze recent commits
+### 确定分析模式：
+- **无输入（默认）**：分析最近的对话上下文
+- **Git 提交 ID**（例如，"3b8d24e" 或完整哈希）：分析特定提交
+- **"uncommitted"/"staged"/"working"**：分析未提交的更改
+- **"last N commits"**（例如，"last 3 commits"）：分析最近的提交
 
-### Execute Analysis:
-Based on the input parameter:
+### 执行分析：
+基于输入参数：
 
-#### For Git Commit Analysis:
+#### 对于 Git 提交分析：
 ```bash
-# Get commit details
+# 获取提交详情
 git show --name-status [COMMIT_ID]
 git diff [COMMIT_ID]^ [COMMIT_ID]
 ```
 
-#### For Uncommitted Changes:
+#### 对于未提交的更改：
 ```bash
-# Get staged and unstaged changes
+# 获取暂存和未暂存的更改
 git status --porcelain
 git diff HEAD
 git diff --cached
 ```
 
-#### For Recent Commits:
+#### 对于最近的提交：
 ```bash
-# Get recent commit history
+# 获取最近的提交历史
 git log --oneline -n [N]
 git diff HEAD~[N] HEAD
 ```
 
-#### For Session Context (default):
-Review your recent conversation and tool usage for significant changes.
+#### 对于会话上下文（默认）：
+回顾您最近的对话和工具使用以查找重要更改。
 
-**Look for Evidence of Documentation-Relevant Changes:**
-- **New features or components** (functionality that needs documenting)
-- **Architecture decisions** (new patterns, structural changes, design decisions)
-- **Technology stack changes** (new dependencies, framework additions, integration changes)
-- **API changes** (new endpoints, modified interfaces, breaking changes)
-- **Configuration changes** (new environment variables, settings, deployment requirements)
-- **File structure changes** (new directories, moved components, reorganized code)
+**查找文档相关更改的证据：**
+- **新功能或组件**（需要记录的功能）
+- **架构决策**（新模式、结构更改、设计决策）
+- **技术栈更改**（新依赖项、框架添加、集成更改）
+- **API 更改**（新端点、修改的接口、破坏性更改）
+- **配置更改**（新环境变量、设置、部署要求）
+- **文件结构更改**（新目录、移动的组件、重组的代码）
 
-**Exclude from Documentation Updates:**
-- Performance optimizations without architectural impact
-- Bug fixes that don't change interfaces or patterns
-- Code cleanup, refactoring that doesn't affect usage
-- Logging improvements, debugging enhancements
-- Test additions without new functionality
+**从文档更新中排除：**
+- 没有架构影响的性能优化
+- 不改变接口或模式的错误修复
+- 不影响使用的代码清理、重构
+- 日志改进、调试增强
+- 没有新功能的测试添加
 
-**Generate a brief summary** of what was accomplished:
+**生成完成内容的简要摘要**：
 ```
-Analysis source: [session context/commit ID/uncommitted changes]
-Detected changes: [1-2 sentence summary of main work done]
+分析来源：[会话上下文/提交 ID/未提交的更改]
+检测到的更改：[主要工作的 1-2 句话摘要]
 ```
 
-## Step 2: Understand Project Context and Documentation Structure
+## 步骤 2：理解项目上下文和文档结构
 
-Analyze the auto-loaded foundational files:
-1. `/CLAUDE.md` - **CRITICAL:** Understand AI instructions, coding standards, and development protocols that govern the project
-2. `/docs/ai-context/project-structure.md` - **FOUNDATION:** Technology stack, complete file tree and architecture overview
-3. `/docs/ai-context/docs-overview.md` - Understand:
-   - What documentation files exist and their purposes
-   - How the documentation is organized
-   - Which types of changes map to which documentation
+分析自动加载的基础文件：
+1. `/CLAUDE.md` - **关键：**理解管理项目的 AI 指令、编码标准和开发协议
+2. `/docs/ai-context/project-structure.md` - **基础：**技术栈、完整文件树和架构概述
+3. `/docs/ai-context/docs-overview.md` - 理解：
+   - 存在哪些文档文件及其用途
+   - 文档是如何组织的
+   - 哪些类型的更改映射到哪些文档
 
-**AI-First Documentation Principle**: Remember that documentation is primarily for AI consumption - optimize for file path references, clear structure markers, and machine-readable patterns that enable efficient context loading.
+**AI 优先文档原则**：记住文档主要供 AI 使用 - 优化文件路径引用、清晰的结构标记和机器可读模式，以实现高效的上下文加载。
 
-## Step 3: Intelligent Update Strategy Decision
+## 步骤 3：智能更新策略决策
 
-Think deeply about the documentation updates needed based on the auto-loaded project context and detected changes. Based on the detected changes from Step 1 AND the auto-loaded project context, intelligently decide the optimal approach:
+基于自动加载的项目上下文和检测到的更改，深入思考所需的文档更新。基于步骤 1 检测到的更改和自动加载的项目上下文，智能决定最佳方法：
 
-### Strategy Options:
+### 策略选项：
 
-**Direct Update** (0-1 sub-agents):
-- Simple file modifications with clear documentation mapping
-- Bug fixes or minor enhancements that don't affect architecture
-- Changes confined to a single component or feature area
-- Standard patterns already well-documented in the project
+**直接更新**（0-1 个子代理）：
+- 具有明确文档映射的简单文件修改
+- 不影响架构的错误修复或小增强
+- 限于单个组件或功能区域的更改
+- 项目中已经有良好记录的标准模式
 
-**Focused Analysis** (2-3 sub-agents):
-- Moderate complexity changes affecting multiple files
-- New features that introduce novel patterns
-- Changes that span 2-3 components or documentation tiers
-- Technology stack updates requiring validation across docs
+**聚焦分析**（2-3 个子代理）：
+- 影响多个文件的中等复杂度更改
+- 引入新模式的新功能
+- 跨越 2-3 个组件或文档层的更改
+- 需要跨文档验证的技术栈更新
 
-**Comprehensive Analysis** (3+ sub-agents):
-- Complex architectural changes affecting multiple system areas
-- Major refactoring that restructures component relationships
-- New integrations that create cross-system dependencies
-- Changes that require extensive documentation cascade updates
+**全面分析**（3+ 个子代理）：
+- 影响多个系统区域的复杂架构更改
+- 重构组件关系的主要重构
+- 创建跨系统依赖的新集成
+- 需要大量文档级联更新的更改
 
-## Step 4: Execute Chosen Strategy
+## 步骤 4：执行选定策略
 
-### For Direct Update:
-Proceed with straightforward documentation updates using the detected changes and auto-loaded foundational context. Continue with Step 5 (Final Decision Making).
+### 对于直接更新：
+使用检测到的更改和自动加载的基础上下文进行直接文档更新。继续步骤 5（最终决策）。
 
-### For Sub-Agent Approaches:
+### 对于子代理方法：
 You have complete autonomy to design sub-agents based on the specific changes detected. Consider these investigation areas and design custom agents to cover what's most relevant:
 
 **Core Investigation Areas to Consider:**
@@ -134,7 +134,7 @@ Return comprehensive findings addressing this investigation area for documentati
 
 **CRITICAL: When using sub-agents, always launch them in parallel using a single message with multiple Task tool invocations.**
 
-## Step 5: Synthesize Analysis and Plan Updates
+## 步骤 5：综合分析并规划更新
 
 ### For Sub-Agent Approaches:
 Think deeply about integrating findings from all sub-agent investigations for optimal documentation updates. Combine findings from all agents to create optimal documentation update strategy:
@@ -153,15 +153,15 @@ Based on synthesized analysis, determine:
 - **Cascade requirements**: Which tier levels need coordinated updates
 - **New file creation**: Whether new documentation files are warranted
 
-## Step 6: Final Decision Making
+## 步骤 6：最终决策
 
-Based on your context analysis and the auto-loaded documentation structure (either direct or synthesized from sub-agents), decide:
-- **Which documents need updates** (match changes to appropriate documentation)
-- **What type of updates** (component changes, architecture decisions, new patterns, etc.)
-- **Update scope** (major changes get more detail, minor changes get brief updates)
-- **Whether new documentation files are needed** (see Smart File Creation guidelines below)
+基于您的上下文分析和自动加载的文档结构（直接或从子代理综合），决定：
+- **哪些文档需要更新**（将更改匹配到适当的文档）
+- **什么类型的更新**（组件更改、架构决策、新模式等）
+- **更新范围**（主要更改获得更多细节，次要更改获得简要更新）
+- **是否需要新的文档文件**（请参见下面的智能文件创建准则）
 
-## Step 7: Smart File Creation (If Needed)
+## 步骤 7：智能文件创建（如需要）
 
 Before updating existing documentation, assess if new documentation files should be created based on the 3-tier system:
 
@@ -208,7 +208,7 @@ Before updating existing documentation, assess if new documentation files should
 *This file was created as part of the 3-tier documentation system to document [brief reason].*
 ```
 
-## Step 8: Tier-First Documentation Updates
+## 步骤 8：层级优先的文档更新
 
 **CRITICAL: Always start with Tier 3 (feature-specific) documentation and work upward through the tiers. Never skip tiers.**
 
@@ -255,7 +255,7 @@ Update other `/docs/ai-context/` files if changes affect:
 - **Avoid redundancy** (don't repeat what's already documented)
 - **Co-locate knowledge** (keep documentation near relevant code)
 
-## Step 9: Update Documentation Overview
+## 步骤 9：更新文档概览
 
 **IMPORTANT:** After updating any documentation files in steps 1-8, check if the documentation overview needs updates:
 - Reference the auto-loaded `/docs/ai-context/docs-overview.md`
@@ -268,31 +268,31 @@ When you create new granular CONTEXT.md files, you MUST add them to the appropri
 - **Tier 2 (Component-Level)**: For new top-level components
 - **Tier 3 (Feature-Specific)**: For new subsystem documentation within existing components
 
-## Quality Guidelines
+## 质量准则
 
-- **Concise:** Keep updates brief and focused
-- **Specific:** Include file names, technologies, key benefits
-- **Accurate:** Based on actual changes made, not assumptions
-- **Helpful:** Information that would be useful to another developer
-- **Current:** Ensure file tree reflects actual project structure
-- **Organized:** Follow the 3-tier documentation system principles
+- **简洁：**保持更新简短而专注
+- **具体：**包括文件名、技术、关键优势
+- **准确：**基于实际所做的更改，而非假设
+- **有用：**对其他开发者有用的信息
+- **当前：**确保文件树反映实际的项目结构
+- **有序：**遵循三层文档系统原则
 
-## When Not to Update or Create Documentation
+## 何时不更新或创建文档
 
-Skip documentation updates/creation for:
-- Bug fixes (unless they change architecture)
-- Minor tweaks or cleanup
-- Debugging or temporary changes
-- Code formatting or comments
-- Trivial modifications
-- Single-file additions that fit existing documentation scope
+跳过文档更新/创建的情况：
+- 错误修复（除非它们改变架构）
+- 小调整或清理
+- 调试或临时更改
+- 代码格式化或注释
+- 琐碎的修改
+- 适合现有文档范围的单文件添加
 
-## 3-Tier System Benefits
+## 三层系统的优势
 
-This enhanced approach leverages the 3-tier documentation system to:
-- **Minimize cascade effects**: Most changes update 1-2 granular files
-- **Scale intelligently**: New documentation created only when warranted
-- **Co-locate knowledge**: Documentation lives near relevant code
-- **Maintain consistency**: Clear guidelines for when and how to extend documentation
+这种增强的方法利用三层文档系统来：
+- **最小化级联效应**：大多数更改仅更新 1-2 个细粒度文件
+- **智能扩展**：仅在必要时创建新文档
+- **知识共置**：文档位于相关代码附近
+- **保持一致性**：关于何时以及如何扩展文档的明确准则
 
-Now analyze the specified changes and update the relevant documentation accordingly.
+现在分析指定的更改并相应地更新相关文档。

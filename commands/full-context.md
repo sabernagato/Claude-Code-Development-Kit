@@ -1,121 +1,121 @@
-You are working on the VR Language Learning App project. Before proceeding with the user's request "$ARGUMENTS", you need to intelligently gather relevant project context using an adaptive sub-agent strategy.
+您正在处理 VR 语言学习应用项目。在处理用户请求 "$ARGUMENTS" 之前，您需要使用自适应子代理策略智能地收集相关项目上下文。
 
-## Auto-Loaded Project Context:
+## 自动加载的项目上下文：
 @/CLAUDE.md
 @/docs/ai-context/project-structure.md
 @/docs/ai-context/docs-overview.md
 
-## Step 1: Intelligent Analysis Strategy Decision
-Think deeply about the optimal approach based on the project context that has been auto-loaded above. Based on the user's request "$ARGUMENTS" and the project structure/documentation overview, intelligently decide the optimal approach:
+## 步骤 1：智能分析策略决策
+基于上面自动加载的项目上下文深入思考最佳方法。根据用户请求 "$ARGUMENTS" 和项目结构/文档概览，智能地决定最佳方法：
 
-### Strategy Options:
-**Direct Approach** (0-1 sub-agents):
-- When the request can be handled efficiently with targeted documentation reading and direct analysis
-- Simple questions about existing code or straightforward tasks
+### 策略选项：
+**直接方法**（0-1 个子代理）：
+- 当请求可以通过有针对性的文档阅读和直接分析高效处理时
+- 关于现有代码的简单问题或直接任务
 
-**Focused Investigation** (2-3 sub-agents):
-- When deep analysis of a specific area would benefit the response
-- For complex single-domain questions or tasks requiring thorough exploration
-- When dependencies and impacts need careful assessment
+**聚焦调查**（2-3 个子代理）：
+- 当特定区域的深入分析有利于响应时
+- 对于复杂的单领域问题或需要彻底探索的任务
+- 当依赖关系和影响需要仔细评估时
 
-**Multi-Perspective Analysis** (3+ sub-agents):
-- When the request involves multiple areas, components, or technical domains
-- When comprehensive understanding requires different analytical perspectives
-- For tasks requiring careful dependency mapping and impact assessment
-- Scale the number of agents based on actual complexity, not predetermined patterns
+**多视角分析**（3+ 个子代理）：
+- 当请求涉及多个区域、组件或技术领域时
+- 当全面理解需要不同的分析视角时
+- 对于需要仔细的依赖关系映射和影响评估的任务
+- 根据实际复杂度而非预定模式来调整代理数量
 
-## Step 2: Autonomous Sub-Agent Design
+## 步骤 2：自主子代理设计
 
-### For Sub-Agent Approach:
-You have complete freedom to design sub-agent tasks based on:
-- **Project structure discovered** from the auto-loaded `/docs/ai-context/project-structure.md` file tree
-- **Documentation architecture** from the auto-loaded `/docs/ai-context/docs-overview.md`
-- **Specific user request requirements**
-- **Your assessment** of what investigation approach would be most effective
+### 子代理方法：
+您可以完全自由地根据以下内容设计子代理任务：
+- **从自动加载的 `/docs/ai-context/project-structure.md` 文件树中发现的项目结构**
+- **从自动加载的 `/docs/ai-context/docs-overview.md` 中获取的文档架构**
+- **特定的用户请求要求**
+- **您对最有效调查方法的评估**
 
-**CRITICAL: When using sub-agents, always launch them in parallel using a single message with multiple Task tool invocations. Never launch sequentially.**
+**关键：使用子代理时，始终使用包含多个 Task 工具调用的单个消息并行启动它们。切勿顺序启动。**
 
-### Sub-Agent Autonomy Principles:
-- **Custom Specialization**: Define agent focus areas based on the specific request and project structure
-- **Flexible Scope**: Agents can analyze any combination of documentation, code files, and architectural patterns
-- **Adaptive Coverage**: Ensure all relevant aspects of the user's request are covered without overlap
-- **Documentation + Code**: Each agent should read relevant documentation files AND examine actual implementation code
-- **Dependency Mapping**: For tasks involving code changes, analyze import/export relationships and identify all files that would be affected
-- **Impact Assessment**: Consider ripple effects across the codebase, including tests, configurations, and related components
-- **Pattern Compliance**: Ensure solutions follow existing project conventions for naming, structure, and architecture
-- **Cleanup Planning**: For structural changes, identify obsolete code, unused imports, and deprecated files that should be removed to prevent code accumulation
-- **Web Research**: Consider, optionally, deploying sub-agents for web searches when current best practices, security advisories, or external compatibility research would enhance the response
+### 子代理自主原则：
+- **自定义专业化**：根据特定请求和项目结构定义代理焦点区域
+- **灵活范围**：代理可以分析文档、代码文件和架构模式的任意组合
+- **自适应覆盖**：确保覆盖用户请求的所有相关方面，避免重叠
+- **文档 + 代码**：每个代理应该阅读相关文档文件并检查实际实现代码
+- **依赖关系映射**：对于涉及代码更改的任务，分析导入/导出关系并识别所有会受影响的文件
+- **影响评估**：考虑整个代码库的连锁反应，包括测试、配置和相关组件
+- **模式合规性**：确保解决方案遵循现有项目的命名、结构和架构约定
+- **清理规划**：对于结构性更改，识别应该删除的过时代码、未使用的导入和已弃用的文件，以防止代码累积
+- **网络研究**：当需要当前最佳实践、安全建议或外部兼容性研究时，可选择部署子代理进行网络搜索
 
-### Sub-Agent Task Design Template:
+### 子代理任务设计模板：
 ```
-Task: "Analyze [SPECIFIC_COMPONENT(S)] for [TASK_OBJECTIVE] related to user request '$ARGUMENTS'"
+任务："分析 [特定组件] 的 [任务目标]，与用户请求 '$ARGUMENTS' 相关"
 
-Standard Investigation Workflow:
-1. Review auto-loaded project context (CLAUDE.md, project-structure.md, docs-overview.md)
-2. (Optionally) Read additional relevant documentation files for architectural context
-3. Analyze actual code files in [COMPONENT(S)] for implementation reality
-4. For code-related tasks: Map import/export dependencies and identify affected files
-5. Assess impact on tests, configurations, and related components
-6. Verify alignment with project patterns and conventions
-7. For structural changes: Identify obsolete code, unused imports, and files that should be removed
+标准调查工作流：
+1. 查看自动加载的项目上下文（CLAUDE.md、project-structure.md、docs-overview.md）
+2. （可选）阅读其他相关文档文件以了解架构上下文
+3. 分析 [组件] 中的实际代码文件以了解实现情况
+4. 对于代码相关任务：映射导入/导出依赖关系并识别受影响的文件
+5. 评估对测试、配置和相关组件的影响
+6. 验证与项目模式和约定的一致性
+7. 对于结构性更改：识别过时代码、未使用的导入和应删除的文件
 
-Return comprehensive findings that address the user's request from this component perspective, including architectural insights, implementation details, dependency mapping, and practical considerations for safe execution."
-```
-
-Example Usage:
-```
-Analysis Task: "Analyze web-dashboard audio processing components to understand current visualization capabilities and identify integration points for user request about adding waveform display"
-
-Implementation Task: "Analyze agents/tutor-server voice pipeline components for latency optimization related to user request about improving response times, including dependency mapping and impact assessment"
-
-Cross-Component Task: "Analyze Socket.IO integration patterns across web-dashboard and tutor-server to plan streaming enhancement for user request about adding live transcription, focusing on import/export changes, affected test files, and cleanup of deprecated socket handlers"
+返回从此组件角度解决用户请求的综合发现，包括架构见解、实现细节、依赖关系映射和安全执行的实际考虑。"
 ```
 
-## Step 3: Execution and Synthesis
-
-### For Sub-Agent Approach:
-Think deeply about integrating findings from all investigation perspectives.
-1. **Design and launch custom sub-agents** based on your strategic analysis
-2. **Collect findings** from all successfully completed agents
-3. **Synthesize comprehensive understanding** by combining all perspectives
-4. **Handle partial failures** by working with available agent findings
-5. **Create implementation plan** (for code changes): Include dependency updates, affected files, cleanup tasks, and verification steps
-6. **Execute user request** using the integrated knowledge from all agents
-
-### For Direct Approach:
-1. **Load relevant documentation and code** based on request analysis
-2. **Proceed directly** with user request using targeted context
-
-## Step 4: Consider MCP Server Usage (Optional)
-
-After gathering context, you may leverage MCP servers for complex technical questions as specified in the auto-loaded `/CLAUDE.md` Section 4:
-- **Gemini Consultation**: Deep analysis of complex coding problems
-- **Context7**: Up-to-date documentation for external libraries
-
-## Step 5: Context Summary and Implementation Plan
-
-After gathering context using your chosen approach:
-1. **Provide concise status update** summarizing findings and approach:
-   - Brief description of what was discovered through your analysis
-   - Your planned implementation strategy based on the findings
-   - Keep it informative but concise (2-4 sentences max)
-
-Example status updates:
+使用示例：
 ```
-"Analysis revealed the voice pipelines use Socket.IO for real-time communication with separate endpoints for each pipeline type. I'll implement the new transcription feature by extending the existing Socket.IO event handling in both the FastAPI backend and SvelteKit frontend, following the established pattern used in the Gemini Live pipeline. This will require updating 3 import statements and adding exports to the socket handler module."
+分析任务："分析 web-dashboard 音频处理组件以了解当前可视化功能，并为关于添加波形显示的用户请求识别集成点"
 
-"Found that audio processing currently uses a modular client architecture with separate recorder, processor, and stream-player components. I'll add the requested audio visualization by creating a new component that taps into the existing audio stream data and integrates with the current debug panel structure. The implementation will follow the existing component patterns and requires updates to 2 parent components for proper integration."
+实现任务："分析 agents/tutor-server 语音管道组件以优化延迟，与关于改善响应时间的用户请求相关，包括依赖关系映射和影响评估"
+
+跨组件任务："分析 web-dashboard 和 tutor-server 中的 Socket.IO 集成模式，以计划关于添加实时转录的用户请求的流媒体增强，重点关注导入/导出更改、受影响的测试文件以及已弃用套接字处理程序的清理"
 ```
 
-2. **Proceed with implementation** of the user request using your comprehensive understanding
+## 步骤 3：执行和综合
 
-## Optimization Guidelines
+### 子代理方法：
+深入思考如何整合所有调查视角的发现。
+1. **根据战略分析设计和启动自定义子代理**
+2. **收集所有成功完成的代理的发现**
+3. **通过结合所有视角综合全面的理解**
+4. **通过使用可用的代理发现处理部分失败**
+5. **创建实施计划**（针对代码更改）：包括依赖项更新、受影响的文件、清理任务和验证步骤
+6. **使用来自所有代理的综合知识执行用户请求**
 
-- **Adaptive Decision-Making**: Choose the approach that best serves the specific user request
-- **Efficient Resource Use**: Balance thoroughness with efficiency based on actual complexity
-- **Comprehensive Coverage**: Ensure all aspects relevant to the user's request are addressed
-- **Quality Synthesis**: Combine findings effectively to provide the most helpful response
+### 直接方法：
+1. **根据请求分析加载相关文档和代码**
+2. **使用有针对性的上下文直接处理用户请求**
 
-This adaptive approach ensures optimal context gathering - from lightweight direct analysis for simple requests to comprehensive multi-agent investigation for complex system-wide tasks.
+## 步骤 4：考虑 MCP 服务器使用（可选）
 
-Now proceed with intelligent context analysis for: $ARGUMENTS
+收集上下文后，您可以根据自动加载的 `/CLAUDE.md` 第 4 节中的说明，利用 MCP 服务器解决复杂的技术问题：
+- **Gemini 咨询**：深入分析复杂的编码问题
+- **Context7**：外部库的最新文档
+
+## 步骤 5：上下文摘要和实施计划
+
+使用您选择的方法收集上下文后：
+1. **提供简洁的状态更新**，总结发现和方法：
+   - 简要描述通过分析发现的内容
+   - 基于发现的计划实施策略
+   - 保持信息丰富但简洁（最多 2-4 句话）
+
+状态更新示例：
+```
+"分析显示语音管道使用 Socket.IO 进行实时通信，每种管道类型都有单独的端点。我将通过扩展 FastAPI 后端和 SvelteKit 前端中的现有 Socket.IO 事件处理来实现新的转录功能，遵循 Gemini Live 管道中使用的既定模式。这将需要更新 3 个导入语句并向套接字处理程序模块添加导出。"
+
+"发现音频处理目前使用模块化客户端架构，具有独立的录音器、处理器和流播放器组件。我将通过创建一个新组件来添加请求的音频可视化，该组件利用现有的音频流数据并与当前的调试面板结构集成。实现将遵循现有的组件模式，需要更新 2 个父组件以实现正确集成。"
+```
+
+2. **使用您的全面理解继续实施用户请求**
+
+## 优化指南
+
+- **自适应决策**：选择最能满足特定用户请求的方法
+- **高效资源使用**：根据实际复杂度平衡彻底性和效率
+- **全面覆盖**：确保涵盖与用户请求相关的所有方面
+- **高质量综合**：有效结合发现以提供最有帮助的响应
+
+这种自适应方法确保了最佳的上下文收集 - 从针对简单请求的轻量级直接分析到针对复杂系统范围任务的全面多代理调查。
+
+现在为以下内容进行智能上下文分析：$ARGUMENTS

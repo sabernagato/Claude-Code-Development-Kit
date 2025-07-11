@@ -1,207 +1,207 @@
-# Documentation System Guide
+# 文档系统指南
 
-This guide explains how the 3-tier documentation architecture powers the Claude Code Development Kit and why it provides superior results compared to traditional documentation approaches.
+本指南解释了三层文档架构如何驱动 Claude Code 开发套件，以及为什么它比传统文档方法提供更优越的结果。
 
-## Critical Foundation Files
+## 关键基础文件
 
-Two files form the cornerstone of the entire documentation system:
+两个文件构成了整个文档系统的基石：
 
-1. **docs-overview.md** - The central routing guide that directs AI agents to appropriate documentation based on task complexity. This file maps your entire documentation structure and enables intelligent context loading.
+1. **docs-overview.md** - 中央路由指南，根据任务复杂度将 AI 代理引导到适当的文档。此文件映射您的整个文档结构并启用智能上下文加载。
 
-2. **project-structure.md** - The comprehensive overview of your project's complete file structure and technology stack. This file is required reading for all AI agents and must be attached to Gemini consultations.
+2. **project-structure.md** - 项目完整文件结构和技术栈的全面概述。此文件是所有 AI 代理的必读内容，必须附加到 Gemini 咨询中。
 
-These foundation files ensure AI agents always have the essential context needed to understand your project and navigate to relevant documentation.
+这些基础文件确保 AI 代理始终拥有理解您的项目和导航到相关文档所需的基本上下文。
 
-## Why the 3-Tier System
+## 为什么使用三层系统
 
-### Traditional Documentation Problems
+### 传统文档的问题
 
-Standard documentation approaches create friction for AI-assisted development:
+标准文档方法为 AI 辅助开发创造了摩擦：
 
-- **Context Overload** - AI agents must process entire documentation sets for simple tasks
-- **Maintenance Burden** - Every code change cascades to multiple documentation locations
-- **Stale Content** - Documentation diverges from implementation reality
-- **No AI Optimization** - Human-readable formats lack structure for machine processing
+- **上下文过载** - AI 代理必须为简单任务处理整个文档集
+- **维护负担** - 每次代码更改都会级联到多个文档位置
+- **内容过时** - 文档与实现现实分离
+- **无 AI 优化** - 人类可读格式缺乏机器处理的结构
 
-### The 3-Tier Solution
+### 三层解决方案
 
-The kit solves these problems through hierarchical organization:
+该套件通过分层组织解决这些问题：
 
-**Tier 1: Foundation (Rarely Changes)**
-- Project-wide standards, architecture decisions, technology stack
-- Auto-loads for every AI session
-- Provides consistent baseline without redundancy
-- Uses CLAUDE.md as the master context file
+**第 1 层：基础（很少更改）**
+- 项目范围的标准、架构决策、技术栈
+- 为每个 AI 会话自动加载
+- 提供一致的基线而无冗余
+- 使用 CLAUDE.md 作为主上下文文件
 
-**Tier 2: Component (Occasionally Changes)**
-- Component boundaries, architectural patterns, integration points
-- Loads only when working within specific components
-- Isolates architectural decisions from implementation details
-- Uses CONTEXT.md files at component roots
+**第 2 层：组件（偶尔更改）**
+- 组件边界、架构模式、集成点
+- 仅在特定组件内工作时加载
+- 将架构决策与实现细节隔离
+- 在组件根目录使用 CONTEXT.md 文件
 
-**Tier 3: Feature (Frequently Changes)**
-- Implementation specifics, technical details, local patterns
-- Co-located with code for immediate updates
-- Minimizes documentation cascade when code changes
-- Uses CONTEXT.md files within feature directories
+**第 3 层：功能（频繁更改）**
+- 实现细节、技术细节、本地模式
+- 与代码共置以便立即更新
+- 代码更改时最小化文档级联
+- 在功能目录内使用 CONTEXT.md 文件
 
-## Benefits vs Traditional Systems
+## 与传统系统相比的优势
 
-### 1. Intelligent Context Loading
+### 1. 智能上下文加载
 
-**Traditional**: AI loads entire documentation corpus regardless of task
-**3-Tier**: Commands load only relevant tiers based on complexity
+**传统**：AI 无论任务如何都加载整个文档语料库
+**三层**：命令根据复杂度仅加载相关层
 
-Example:
-- Simple query → Tier 1 only (minimal tokens)
-- Component work → Tier 1 + relevant Tier 2
-- Deep implementation → All relevant tiers
+示例：
+- 简单查询 → 仅第 1 层（最少 token）
+- 组件工作 → 第 1 层 + 相关第 2 层
+- 深度实现 → 所有相关层
 
-### 2. Maintenance Efficiency
+### 2. 维护效率
 
-**Traditional**: Update multiple documents for each change
-**3-Tier**: Updates isolated to appropriate tier
+**传统**：每次更改都要更新多个文档
+**三层**：更新隔离到适当的层
 
-Example:
-- API endpoint change → Update only Tier 3 API documentation
-- New component → Add Tier 2 documentation, Tier 1 unchanged
-- Coding standard → Update only Tier 1, applies everywhere
+示例：
+- API 端点更改 → 仅更新第 3 层 API 文档
+- 新组件 → 添加第 2 层文档，第 1 层不变
+- 编码标准 → 仅更新第 1 层，适用于所有地方
 
-### 3. AI Performance Optimization
+### 3. AI 性能优化
 
-**Traditional**: AI struggles to find relevant information
-**3-Tier**: Structured hierarchy guides AI to precise context
+**传统**：AI 难以找到相关信息
+**三层**：结构化层次引导 AI 到精确上下文
 
-The system provides:
-- Clear routing logic for agent navigation
-- Predictable documentation locations
-- Efficient token usage through targeted loading
+系统提供：
+- 代理导航的清晰路由逻辑
+- 可预测的文档位置
+- 通过有针对性的加载实现高效的 token 使用
 
-## Integration with Kit Components
+## 与套件组件的集成
 
-### Command Integration
+### 命令集成
 
-Commands leverage the 3-tier structure for intelligent operation:
+命令利用三层结构进行智能操作：
 
 ```
-Command Execution → Analyze Task Complexity → Load Appropriate Tiers
-                                            ↓
-                                   Simple: Tier 1 only
-                                   Component: Tiers 1-2
-                                   Complex: All relevant tiers
+命令执行 → 分析任务复杂度 → 加载适当的层
+                                      ↓
+                             简单：仅第 1 层
+                             组件：第 1-2 层
+                             复杂：所有相关层
 ```
 
-### MCP Server Integration
+### MCP 服务器集成
 
-External AI services receive proper context through the tier system:
+外部 AI 服务通过层系统接收适当的上下文：
 
-- **Gemini Consultations** - Auto-attach `project-structure.md` (Tier 1)
-- **Context7 Lookups** - Happen within established project context
-- **Recommendations** - Align with documented architecture
+- **Gemini 咨询** - 自动附加 `project-structure.md`（第 1 层）
+- **Context7 查找** - 在已建立的项目上下文中进行
+- **建议** - 与记录的架构保持一致
 
-### Multi-Agent Routing
+### 多代理路由
 
-The documentation structure determines agent behavior:
+文档结构决定代理行为：
 
-- Number of agents spawned based on tiers involved
-- Each agent receives targeted documentation subset
-- Parallel analysis without context overlap
+- 根据涉及的层数生成代理数量
+- 每个代理接收有针对性的文档子集
+- 并行分析而无上下文重叠
 
-## Key Files and Their Roles
+## 关键文件及其角色
 
-### Foundation Files (ai-context/)
+### 基础文件（ai-context/）
 
 **docs-overview.md**
-- Template for implementing 3-tier documentation
-- Maps documentation structure for AI navigation
-- [View Template](ai-context/docs-overview.md)
+- 实施三层文档的模板
+- 为 AI 导航映射文档结构
+- [查看模板](ai-context/docs-overview.md)
 
 **project-structure.md**
-- Complete technology stack and file organization
-- Required reading for all AI agents
-- Auto-attaches to Gemini consultations
-- [View Template](ai-context/project-structure.md)
+- 完整的技术栈和文件组织
+- 所有 AI 代理的必读内容
+- 自动附加到 Gemini 咨询
+- [查看模板](ai-context/project-structure.md)
 
 **system-integration.md**
-- Cross-component communication patterns
-- Integration architectures for multi-agent analysis
-- [View Template](ai-context/system-integration.md)
+- 跨组件通信模式
+- 多代理分析的集成架构
+- [查看模板](ai-context/system-integration.md)
 
 **deployment-infrastructure.md**
-- Infrastructure patterns and constraints
-- Deployment context for AI recommendations
-- [View Template](ai-context/deployment-infrastructure.md)
+- 基础设施模式和约束
+- AI 建议的部署上下文
+- [查看模板](ai-context/deployment-infrastructure.md)
 
 **handoff.md**
-- Session continuity between AI interactions
-- Task state preservation
-- [View Template](ai-context/handoff.md)
+- AI 交互之间的会话连续性
+- 任务状态保存
+- [查看模板](ai-context/handoff.md)
 
-### Context Templates
+### 上下文模板
 
-**CLAUDE.md** (Tier 1)
-- Master AI context with coding standards
-- Project-wide instructions and patterns
-- [View Template](CLAUDE.md)
+**CLAUDE.md**（第 1 层）
+- 带有编码标准的主 AI 上下文
+- 项目范围的指令和模式
+- [查看模板](CLAUDE.md)
 
 **CONTEXT-tier2-component.md**
-- Component-level architectural context
-- [View Template](CONTEXT-tier2-component.md)
+- 组件级架构上下文
+- [查看模板](CONTEXT-tier2-component.md)
 
 **CONTEXT-tier3-feature.md**
-- Feature-specific implementation details
-- [View Template](CONTEXT-tier3-feature.md)
+- 功能特定的实现细节
+- [查看模板](CONTEXT-tier3-feature.md)
 
-## Implementation Strategy
+## 实施策略
 
-### 1. Start with Templates
+### 1. 从模板开始
 
-Use provided templates as foundation:
-- Copy and customize for your project
-- Maintain consistent structure
-- Focus on AI-consumable formatting
+使用提供的模板作为基础：
+- 复制并为您的项目自定义
+- 保持一致的结构
+- 专注于 AI 可消费的格式
 
-### 2. Follow Natural Boundaries
+### 2. 遵循自然边界
 
-Let your architecture guide tier placement:
-- Stable decisions → Tier 1
-- Component design → Tier 2
-- Implementation details → Tier 3
+让您的架构指导层的放置：
+- 稳定的决策 → 第 1 层
+- 组件设计 → 第 2 层
+- 实现细节 → 第 3 层
 
-### 3. Co-locate Documentation
+### 3. 共置文档
 
-Place CONTEXT.md files with related code:
+将 CONTEXT.md 文件与相关代码放在一起：
 ```
 backend/
-├── CONTEXT.md         # Backend architecture (Tier 2)
+├── CONTEXT.md         # 后端架构（第 2 层）
 └── src/
     └── api/
-        └── CONTEXT.md # API implementation (Tier 3)
+        └── CONTEXT.md # API 实现（第 3 层）
 ```
 
-### 4. Maintain Hierarchy
+### 4. 维护层次结构
 
-Ensure clear relationships:
-- Tier 3 references Tier 2 patterns
-- Tier 2 follows Tier 1 standards
-- No circular dependencies
+确保清晰的关系：
+- 第 3 层引用第 2 层模式
+- 第 2 层遵循第 1 层标准
+- 无循环依赖
 
-### 5. Use Documentation Commands
+### 5. 使用文档命令
 
-The kit provides commands to manage documentation:
-- **`/create-docs`** - Generate initial documentation structure for projects without existing docs
-- **`/update-docs`** - Regenerate and update documentation after code changes to keep everything current
+套件提供管理文档的命令：
+- **`/create-docs`** - 为没有现有文档的项目生成初始文档结构
+- **`/update-docs`** - 在代码更改后重新生成和更新文档以保持所有内容最新
 
-## Measuring Success
+## 衡量成功
 
-The 3-tier system succeeds when:
+三层系统成功的标志是：
 
-1. **AI agents find context quickly** - No searching through irrelevant documentation
-2. **Updates stay localized** - Changes don't cascade unnecessarily
-3. **Documentation stays current** - Co-location ensures updates happen
-4. **Commands work efficiently** - Appropriate context loads automatically
-5. **MCP servers provide relevant advice** - External AI understands your project
+1. **AI 代理快速找到上下文** - 不需要搜索无关文档
+2. **更新保持本地化** - 更改不会不必要地级联
+3. **文档保持最新** - 共置确保更新发生
+4. **命令高效工作** - 适当的上下文自动加载
+5. **MCP 服务器提供相关建议** - 外部 AI 理解您的项目
 
 ---
 
-*Part of the Claude Code Development Kit - see [main documentation](../README.md) for complete system overview.*
+*Claude Code 开发套件的一部分 - 查看[主文档](../README.md)以获取完整的系统概述。*

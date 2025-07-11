@@ -1,21 +1,21 @@
-# System Integration Documentation
+# 系统集成文档
 
-This document contains cross-component integration patterns and system-wide architectural decisions.
+本文档包含跨组件集成模式和系统级架构决策。
 
-## Purpose
+## 用途
 
-This template serves as a placeholder for documenting:
-- Cross-component communication patterns
-- Data flow architectures between services
-- Integration strategies with external systems
-- Performance optimization patterns
-- Testing strategies for integrated systems
-- Error handling across service boundaries
+此模板用作以下内容的文档占位符：
+- 跨组件通信模式
+- 服务之间的数据流架构
+- 与外部系统的集成策略
+- 性能优化模式
+- 集成系统的测试策略
+- 跨服务边界的错误处理
 
-## Implementation Note
+## 实施说明
 
-Replace this template with your actual system integration documentation as your project develops. Focus on patterns that AI agents need to understand when working across component boundaries or implementing features that span multiple services.
+随着项目的发展，请用您的实际系统集成文档替换此模板。重点关注 AI 代理在跨组件边界工作或实现跨多个服务的功能时需要理解的模式。
 
 ---
 
-*Customize this template based on your specific integration patterns and architectural requirements.*
+*根据您的具体集成模式和架构需求自定义此模板。*

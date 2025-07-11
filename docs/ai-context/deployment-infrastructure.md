@@ -1,21 +1,21 @@
-# Deployment & Infrastructure Documentation
+# 部署与基础设施文档
 
-This document contains deployment and infrastructure-related documentation for the project.
+本文档包含项目的部署和基础设施相关文档。
 
-## Purpose
+## 用途
 
-This template serves as a placeholder for documenting:
-- Deployment strategies and procedures
-- Infrastructure architecture and configuration
-- CI/CD pipelines and automation
-- Environment management
-- Monitoring and observability setup
-- Scaling strategies and considerations
+此模板用作以下内容的文档占位符：
+- 部署策略和流程
+- 基础设施架构和配置
+- CI/CD 管道和自动化
+- 环境管理
+- 监控和可观测性设置
+- 扩展策略和考虑事项
 
-## Implementation Note
+## 实施说明
 
-Replace this template with your actual deployment and infrastructure documentation as your project develops. Focus on patterns and decisions that AI agents need to understand when working with infrastructure-related code or making architectural recommendations.
+随着项目的发展，请用您的实际部署和基础设施文档替换此模板。重点关注 AI 代理在处理基础设施相关代码或提出架构建议时需要理解的模式和决策。
 
 ---
 
-*Customize this template based on your specific deployment and infrastructure requirements.*
+*根据您的具体部署和基础设施需求自定义此模板。*

@@ -1,96 +1,96 @@
-# [COMPONENT NAME] - Component Context (Tier 2)
+# [组件名称] - 组件上下文 (第 2 层)
 
-> **Note**: This is component-specific context. See root **CLAUDE.md** for master project context and coding standards.
+> **注意**: 这是组件特定的上下文。有关主项目上下文和编码标准，请参阅根目录的 **CLAUDE.md**。
 
-## Purpose
-[Brief description of this component's role in the system. What problem does it solve and how does it fit into the overall architecture?]
+## 用途
+[简要描述此组件在系统中的作用。它解决什么问题，如何融入整体架构？]
 
-## Current Status: [Status Description] ✅/🚧/📋
-[Current implementation state, what's working, what's in progress, and key milestones achieved]
+## 当前状态: [状态描述] ✅/🚧/📋
+[当前实施状态、哪些功能正常工作、哪些正在进行中，以及已实现的关键里程碑]
 
-## Component-Specific Development Guidelines
-- **[Technology/Framework]**: [Specific technology requirements for this component]
-- **[Architecture Pattern]**: [Component-specific architectural approach]
-- **[Code Organization]**: [How code should be structured within this component]
-- **[Integration Patterns]**: [How this component integrates with others]
-- **[Quality Standards]**: [Component-specific quality requirements]
+## 组件特定的开发指南
+- **[技术/框架]**: [此组件的特定技术要求]
+- **[架构模式]**: [组件特定的架构方法]
+- **[代码组织]**: [如何在此组件内构建代码]
+- **[集成模式]**: [此组件如何与其他组件集成]
+- **[质量标准]**: [组件特定的质量要求]
 
-## Key Component Structure
+## 关键组件结构
 
-### Core Modules (`[path]/`)
-- **[module1]/** - [Purpose and key functionality]
-  - **[file1].[ext]** - [Specific file purpose and key features]
-  - **[file2].[ext]** - [Specific file purpose and key features]
-- **[module2]/** - [Purpose and key functionality]  
-- **[module3]/** - [Purpose and key functionality]
+### 核心模块 (`[path]/`)
+- **[module1]/** - [用途和关键功能]
+  - **[file1].[ext]** - [特定文件用途和关键功能]
+  - **[file2].[ext]** - [特定文件用途和关键功能]
+- **[module2]/** - [用途和关键功能]  
+- **[module3]/** - [用途和关键功能]
 
-### [Secondary Structure] (`[path]/`)
-- **[component].[ext]** - [Component purpose and architecture pattern]
-- **[utilities].[ext]** - [Utility functions and helpers]
-- **[config].[ext]** - [Configuration and settings management]
+### [次要结构] (`[path]/`)
+- **[component].[ext]** - [组件用途和架构模式]
+- **[utilities].[ext]** - [实用函数和辅助程序]
+- **[config].[ext]** - [配置和设置管理]
 
-### [Integration Layer] (`[path]/`)
-- **[integration1].[ext]** - [External service integration patterns]
-- **[integration2].[ext]** - [Inter-component communication]
+### [集成层] (`[path]/`)
+- **[integration1].[ext]** - [外部服务集成模式]
+- **[integration2].[ext]** - [组件间通信]
 
-## Implementation Highlights
+## 实现亮点
 
-### [Key Feature 1]
-- **[Technical Implementation]**: [How this feature is implemented]
-- **[Architecture Decision]**: [Why this approach was chosen]
-- **[Performance Considerations]**: [Optimization details]
-- **[Integration Points]**: [How it connects to other components]
+### [关键功能 1]
+- **[技术实现]**: [如何实现此功能]
+- **[架构决策]**: [为什么选择这种方法]
+- **[性能考虑]**: [优化细节]
+- **[集成点]**: [如何连接到其他组件]
 
-### [Key Feature 2]  
-- **[Implementation Pattern]**: [Technical implementation approach]
-- **[Quality Measures]**: [Testing, monitoring, error handling]
-- **[Scalability Considerations]**: [How it handles growth/load]
+### [关键功能 2]  
+- **[实现模式]**: [技术实现方法]
+- **[质量措施]**: [测试、监控、错误处理]
+- **[可扩展性考虑]**: [如何处理增长/负载]
 
-### [Key Feature 3]
-- **[Technical Details]**: [Implementation specifics]
-- **[Dependencies]**: [External dependencies and integration points]
-- **[Configuration]**: [How it's configured and customized]
+### [关键功能 3]
+- **[技术细节]**: [实现细节]
+- **[依赖项]**: [外部依赖和集成点]
+- **[配置]**: [如何配置和自定义]
 
-## Critical Implementation Details
+## 关键实现细节
 
-### [Technical Pattern 1]
-**[Pattern Description]**: [What problem this pattern solves]
-
-```[language]
-// Example implementation showing the pattern
-[code example demonstrating the critical implementation]
-```
-
-### [Technical Pattern 2]  
-**[Architecture Decision]**: [Why this approach was chosen]
+### [技术模式 1]
+**[模式描述]**: [此模式解决什么问题]
 
 ```[language]
-// Code example showing architecture implementation
-[code example demonstrating the architecture]
+// 展示模式的示例实现
+[演示关键实现的代码示例]
 ```
 
-### [Integration Pattern]
-**[Integration Description]**: [How this component integrates with others]
+### [技术模式 2]  
+**[架构决策]**: [为什么选择这种方法]
 
 ```[language]
-// Integration implementation example  
-[code example showing integration patterns]
+// 显示架构实现的代码示例
+[演示架构的代码示例]
 ```
 
-## Development Notes
+### [集成模式]
+**[集成描述]**: [此组件如何与其他组件集成]
 
-### [Current Challenges]
-- **[Challenge 1]**: [Description and current approach]
-- **[Challenge 2]**: [Description and mitigation strategy]
+```[language]
+// 集成实现示例  
+[显示集成模式的代码示例]
+```
 
-### [Future Considerations]
-- **[Enhancement 1]**: [Planned improvement and rationale]
-- **[Enhancement 2]**: [Future architectural evolution]
+## 开发注意事项
 
-### [Performance Metrics]
-- **[Key Metric 1]**: [Current performance and targets]
-- **[Key Metric 2]**: [Monitoring and optimization approach]
+### [当前挑战]
+- **[挑战 1]**: [描述和当前方法]
+- **[挑战 2]**: [描述和缓解策略]
+
+### [未来考虑]
+- **[增强 1]**: [计划的改进和理由]
+- **[增强 2]**: [未来的架构演进]
+
+### [性能指标]
+- **[关键指标 1]**: [当前性能和目标]
+- **[关键指标 2]**: [监控和优化方法]
 
 ---
 
-*This component documentation provides context for AI-assisted development within [COMPONENT NAME]. For system-wide patterns and standards, reference the master CLAUDE.md file.*
+*此组件文档为 [组件名称] 内的 AI 辅助开发提供上下文。有关系统范围的模式和标准，请参考主 CLAUDE.md 文件。*

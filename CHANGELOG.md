@@ -1,119 +1,119 @@
-# Changelog
+# 更新日志
 
-All notable changes to the Claude Code Development Kit will be documented in this file.
+所有 Claude Code 开发套件的重要更改都将记录在此文件中。
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
+本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/spec/v2.0.0.html)。
 
 
-### What's New in v2.0.0:
-- **Security**: Automatic scanning prevents accidental exposure of API keys and secrets
-- **Context Enhancement**: Project structure and MCP assistant rules automatically included in Gemini consultations
-- **Sub-Agent Context**: All sub-agents now automatically receive core project documentation
-- **Developer Experience**: Audio notifications for task completion and input requests
-- **MCP Assistant Rules**: Define project-specific coding standards for MCP assistants
-- **No Breaking Changes**: All v1.0.0 features remain unchanged and fully compatible
+### v2.0.0 新特性：
+- **安全性**：自动扫描防止意外暴露 API 密钥和秘密
+- **上下文增强**：项目结构和 MCP 助手规则自动包含在 Gemini 咨询中
+- **子代理上下文**：所有子代理现在自动接收核心项目文档
+- **开发者体验**：任务完成和输入请求的音频通知
+- **MCP 助手规则**：为 MCP 助手定义项目特定的编码标准
+- **无破坏性更改**：所有 v1.0.0 功能保持不变且完全兼容
 
 
 ## [2.0.0] - 2025-07-10
 
-### Added
-- Comprehensive hooks system as 4th core framework component
-  - Security scanner hook to prevent accidental exposure of secrets when using MCP servers
-  - Gemini context injector for automatic project structure and MCP assistant rules inclusion in consultations
-  - Subagent context injector for automatic documentation inclusion in all sub-agent tasks
-  - Cross-platform notification system with audio feedback
-- MCP-ASSISTANT-RULES.md support for project-specific coding standards
-  - Template in `docs/MCP-ASSISTANT-RULES.md` for customization
-  - Automatic injection into Gemini consultations via updated hook
-  - Example implementation in framework root (gitignored)
-- Hook setup command (`/hook-setup`) for easy configuration verification
-- Settings template for Claude Code configuration with all hooks pre-configured
-- Hook configuration examples and comprehensive documentation
-- Multi-Agent Workflows documentation section in `docs/CLAUDE.md`
-- Automatic context injection documentation in `commands/README.md`
-- Remote installation capability via curl command
-  - New `install.sh` script for one-command installation
-  - Downloads framework from GitHub without cloning
-  - Professional installer with progress indicators
-  - Automatic cleanup of temporary files
-- Interactive `setup.sh` script for framework installation
-  - Prerequisite checking with clear explanations for required tools
-  - Interactive prompts for optional components with descriptions
-  - Conditional file copying based on user selections
-  - Conflict resolution for existing files (skip/overwrite/all)
-  - Dynamic OS detection only when notifications are selected
-  - Configuration file generation with selected components only
-  - Cross-platform support (macOS, Linux, Windows via WSL)
+### 新增
+- 作为第 4 个核心框架组件的综合钩子系统
+  - 安全扫描器钩子，防止在使用 MCP 服务器时意外暴露秘密
+  - Gemini 上下文注入器，用于在咨询中自动包含项目结构和 MCP 助手规则
+  - 子代理上下文注入器，用于在所有子代理任务中自动包含文档
+  - 带音频反馈的跨平台通知系统
+- MCP-ASSISTANT-RULES.md 支持项目特定的编码标准
+  - `docs/MCP-ASSISTANT-RULES.md` 中的自定义模板
+  - 通过更新的钩子自动注入到 Gemini 咨询中
+  - 框架根目录中的示例实现（已添加到 gitignore）
+- 钩子设置命令（`/hook-setup`）用于简化配置验证
+- Claude Code 配置的设置模板，预配置了所有钩子
+- 钩子配置示例和全面的文档
+- `docs/CLAUDE.md` 中的多代理工作流文档部分
+- `commands/README.md` 中的自动上下文注入文档
+- 通过 curl 命令的远程安装功能
+  - 新的 `install.sh` 脚本用于一键安装
+  - 从 GitHub 下载框架而无需克隆
+  - 带进度指示器的专业安装程序
+  - 自动清理临时文件
+- 用于框架安装的交互式 `setup.sh` 脚本
+  - 先决条件检查，对所需工具有清晰的解释
+  - 可选组件的交互式提示和描述
+  - 基于用户选择的条件文件复制
+  - 现有文件的冲突解决（跳过/覆盖/全部）
+  - 仅在选择通知时进行动态操作系统检测
+  - 仅使用选定组件生成配置文件
+  - 跨平台支持（macOS、Linux、通过 WSL 的 Windows）
 
 
-### Improved
-- Developer experience with automatic sub-agent context injection
-- More consistent multi-agent workflow patterns across all commands
-- Simplified sub-agent prompts by removing manual context loading
-- Installation experience with two methods: quick install (curl) or manual (git clone)
-- Documentation with clearer installation instructions and correct MCP server links
-- User onboarding with step-by-step setup guidance and component descriptions
-- Setup safety with file conflict resolution instead of automatic overwrites
+### 改进
+- 通过自动子代理上下文注入改善开发者体验
+- 所有命令中更一致的多代理工作流模式
+- 通过移除手动上下文加载简化子代理提示
+- 两种安装方法改善安装体验：快速安装（curl）或手动（git clone）
+- 更清晰的安装说明和正确的 MCP 服务器链接改进文档
+- 通过逐步设置指导和组件描述改善用户引导
+- 通过文件冲突解决而非自动覆盖提高设置安全性
 
-### Changed
-- Tier 2 and Tier 3 documentation files renamed from CLAUDE.md to CONTEXT.md
-- Updated all documentation and templates to reflect new naming convention
-- Clarified that only Tier 1 (master context) remains as CLAUDE.md
+### 变更
+- 第 2 层和第 3 层文档文件从 CLAUDE.md 重命名为 CONTEXT.md
+- 更新所有文档和模板以反映新的命名约定
+- 明确只有第 1 层（主上下文）保留为 CLAUDE.md
 
 
 ## [1.0.0] - 2025-07-01
 
-### Added
-- Initial framework release with 3 core components
-- 3-tier documentation system (Foundation/Component/Feature)
-- Command templates for multi-agent workflows
-  - `/full-context` - Comprehensive context gathering and analysis
-  - `/code-review` - Multi-perspective code analysis
-  - `/update-docs` - Documentation synchronization
-  - `/create-docs` - Initial documentation generation
-  - `/refactor` - Intelligent code restructuring
-  - `/handoff` - Session context preservation
-- MCP server integration patterns (Context7, Gemini)
-- Auto-loading mechanism for critical documentation
-- Comprehensive documentation structure with routing system
-- Example templates for issues and specifications
-- Integration guide for external AI services
+### 新增
+- 包含 3 个核心组件的初始框架发布
+- 三层文档系统（基础/组件/功能）
+- 多代理工作流的命令模板
+  - `/full-context` - 全面的上下文收集和分析
+  - `/code-review` - 多视角代码分析
+  - `/update-docs` - 文档同步
+  - `/create-docs` - 初始文档生成
+  - `/refactor` - 智能代码重构
+  - `/handoff` - 会话上下文保存
+- MCP 服务器集成模式（Context7、Gemini）
+- 关键文档的自动加载机制
+- 带路由系统的全面文档结构
+- 问题和规范的示例模板
+- 外部 AI 服务的集成指南
 
-### Core Features
-- Automatic context management through documentation hierarchy
-- Sub-agent orchestration for complex tasks
-- Seamless integration with external AI expertise
-- Self-maintaining documentation system
+### 核心功能
+- 通过文档层次结构自动管理上下文
+- 复杂任务的子代理编排
+- 与外部 AI 专家系统的无缝集成
+- 自我维护的文档系统
 
 
-## Upgrading from v1.0.0 to v2.0.0
+## 从 v1.0.0 升级到 v2.0.0
 
-The hooks system is optional but recommended for enhanced security and developer experience.
+钩子系统是可选的，但建议使用以增强安全性和开发者体验。
 
-### To add hooks to your existing v1.0.0 project:
+### 将钩子添加到现有的 v1.0.0 项目：
 
-1. **Copy the hooks directory to your project**:
+1. **将钩子目录复制到您的项目**：
    ```bash
    cp -r hooks your-project/.claude/hooks/
    ```
 
-2. **Configure hooks in your project**:
+2. **在您的项目中配置钩子**：
    ```bash
-   # Copy the settings template to your project
+   # 将设置模板复制到您的项目
    cp hooks/setup/settings.json.template your-project/.claude/settings.json
    
-   # Edit to update the WORKSPACE path
-   # All hooks including subagent-context-injector are pre-configured
+   # 编辑以更新 WORKSPACE 路径
+   # 包括 subagent-context-injector 在内的所有钩子都已预配置
    ```
 
-3. **Test the installation**:
+3. **测试安装**：
    ```bash
-   # Run the hook setup verification
+   # 运行钩子设置验证
    /hook-setup
    ```
 
-4. **Update existing command files** (optional):
-   - Commands will work without changes, but you can simplify sub-agent prompts
-   - Remove manual `Read /CLAUDE.md` instructions from Task prompts
-   - Sub-agents now automatically receive core documentation
+4. **更新现有命令文件**（可选）：
+   - 命令无需更改即可工作，但您可以简化子代理提示
+   - 从 Task 提示中删除手动的 `Read /CLAUDE.md` 指令
+   - 子代理现在自动接收核心文档

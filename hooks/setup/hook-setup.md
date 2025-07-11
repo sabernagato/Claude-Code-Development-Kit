@@ -1,96 +1,96 @@
-## Description
+## 描述
 
-This command uses specialized agents to verify, configure, and test your Claude Code hooks installation. It ensures everything is properly set up and working correctly.
+此命令使用专门的代理来验证、配置和测试您的 Claude Code 钩子安装。它确保一切都正确设置并正常工作。
 
-## Process
+## 过程
 
-### Phase 1: Multi-Agent Setup Verification
+### 第 1 阶段：多代理设置验证
 
-The command spawns specialized agents to handle different aspects:
+该命令生成专门的代理来处理不同方面：
 
-1. **Installation Agent**
-   - Verifies `.claude/hooks/` directory exists
-   - Checks all hook scripts are present
-   - Ensures executable permissions (`chmod +x`)
-   - Validates sound files and configuration files
+1. **安装代理**
+   - 验证 `.claude/hooks/` 目录存在
+   - 检查所有钩子脚本是否存在
+   - 确保可执行权限（`chmod +x`）
+   - 验证声音文件和配置文件
 
-2. **Configuration Agent**
-   - Locates Claude Code settings.json for your OS
-   - Verifies hook configurations in settings
-   - Checks WORKSPACE environment variable
-   - Validates MCP server configurations
+2. **配置代理**
+   - 为您的操作系统定位 Claude Code settings.json
+   - 验证设置中的钩子配置
+   - 检查 WORKSPACE 环境变量
+   - 验证 MCP 服务器配置
 
-3. **Documentation Agent**
-   - Ensures project structure documentation exists
-   - Verifies paths used by context injector
-   - Checks log directory setup
+3. **文档代理**
+   - 确保项目结构文档存在
+   - 验证上下文注入器使用的路径
+   - 检查日志目录设置
 
-### Phase 2: Comprehensive Testing
+### 第 2 阶段：全面测试
 
-After setup verification, the main agent runs comprehensive tests:
+在设置验证后，主代理运行全面测试：
 
-1. **Security Scanner Tests**
-   - API key detection patterns
-   - Password and secret detection
-   - Whitelist functionality
-   - Command injection protection
-   - File scanning capabilities
+1. **安全扫描器测试**
+   - API 密钥检测模式
+   - 密码和秘密检测
+   - 白名单功能
+   - 命令注入保护
+   - 文件扫描功能
 
-2. **Context Injector Tests**
-   - New session detection
-   - File attachment logic
-   - Path resolution
-   - Error handling scenarios
+2. **上下文注入器测试**
+   - 新会话检测
+   - 文件附加逻辑
+   - 路径解析
+   - 错误处理场景
 
-3. **Notification Tests**
-   - Audio playback on current platform
-   - Fallback mechanism verification
-   - Both input and complete sounds
+3. **通知测试**
+   - 当前平台上的音频播放
+   - 回退机制验证
+   - 输入和完成声音
 
-## Expected Output
+## 预期输出
 
 ```
-Starting multi-agent hook setup verification...
+开始多代理钩子设置验证...
 
-[Installation Agent]
-✓ Hooks directory found: .claude/hooks/
-✓ All hook scripts present and executable
-✓ Configuration files valid
-✓ Sound files present
+[安装代理]
+✓ 找到钩子目录：.claude/hooks/
+✓ 所有钩子脚本存在且可执行
+✓ 配置文件有效
+✓ 声音文件存在
 
-[Configuration Agent]
-✓ Project settings found: .claude/settings.json
-✓ Hook configurations verified
-✓ WORKSPACE environment variable set correctly
+[配置代理]
+✓ 找到项目设置：.claude/settings.json
+✓ 钩子配置已验证
+✓ WORKSPACE 环境变量设置正确
 
-[Documentation Agent]
-✓ Project structure documentation found
-✓ Log directories configured
+[文档代理]
+✓ 找到项目结构文档
+✓ 日志目录已配置
 
-Running comprehensive tests...
+运行全面测试...
 
-[Security Scanner]
-✓ Detected: sk-1234567890abcdef (API key)
-✓ Detected: password=mysecret123
-✓ Allowed: YOUR_API_KEY (whitelisted)
-✓ Blocked: $(malicious) (injection attempt)
+[安全扫描器]
+✓ 检测到：sk-1234567890abcdef（API 密钥）
+✓ 检测到：password=mysecret123
+✓ 允许：YOUR_API_KEY（已列入白名单）
+✓ 阻止：$(malicious)（注入尝试）
 
-[Context Injector]
-✓ New session handling correct
-✓ File attachment working
-✓ Error handling graceful
+[上下文注入器]
+✓ 新会话处理正确
+✓ 文件附加正常工作
+✓ 错误处理优雅
 
-[Notifications]
-✓ Audio playback successful
-✓ Platform: darwin (macOS)
+[通知]
+✓ 音频播放成功
+✓ 平台：darwin（macOS）
 
-All hooks configured and tested successfully!
+所有钩子配置和测试成功！
 ```
 
-## Troubleshooting
+## 故障排除
 
-The command provides specific guidance for any issues found:
-- Missing files or permissions
-- Configuration problems
-- Test failures with debugging steps
-- Platform-specific audio issues
+该命令为发现的任何问题提供具体指导：
+- 缺少文件或权限
+- 配置问题
+- 带调试步骤的测试失败
+- 特定平台的音频问题

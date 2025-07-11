@@ -1,113 +1,112 @@
-# Claude Code Development Kit
+# Claude Code 开发套件
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/peterkrueck/Claude-Code-Development-Kit/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Changelog](https://img.shields.io/badge/changelog-v2.0.0-orange.svg)](CHANGELOG.md)
 
-An integrated system that transforms Claude Code into an orchestrated development environment through automated documentation management, multi-agent workflows, and external AI expertise.
+一个将 Claude Code 转变为编排式开发环境的集成系统，通过自动化文档管理、多代理工作流和外部 AI 专家系统实现。
 
-## 🎯 Why This Kit?
+## 🎯 为什么需要这个套件？
 
-> *Ever tried to build a large project with AI assistance, only to watch it struggle as your codebase grows?*
+> *是否曾经尝试在 AI 协助下构建大型项目，却眼看着随着代码库增长，AI 开始力不从心？*
 
-Claude Code's output quality directly depends on what it knows about your project. As AI-assisted development scales, three critical challenges emerge:
-
----
-
-### Challenge 1: Context Management
-
-**The Problem:**
-```
-❌ Loses track of your architecture patterns and design decisions
-❌ Forgets your coding standards and team conventions
-❌ No guidance on where to find the right context in large codebases
-```
-
-**The Solution:**
-✅ **Automated context delivery** through two integrated systems:
-- **3-tier documentation system** - Auto-loads the right docs at the right time
-- **Custom commands with sub-agents** - Orchestrates specialized agents that already know your project
-- Result: No manual context loading, consistent knowledge across all agents
+Claude Code 的输出质量直接取决于它对您项目的了解程度。随着 AI 辅助开发规模的扩大，出现了三个关键挑战：
 
 ---
 
-### Challenge 2: AI Reliability 
+### 挑战 1：上下文管理
 
-**The Problem:**
+**问题：**
 ```
-❌ Outdated library documentation
-❌ Hallucinated API methods
-❌ Inconsistent architectural decisions
+❌ 无法跟踪架构模式和设计决策
+❌ 忘记编码标准和团队约定
+❌ 在大型代码库中找不到正确的上下文
 ```
 
-**The Solution:**
-✅ **"Four eyes principle"** through MCP integration:
+**解决方案：**
+✅ **自动化上下文交付**，通过两个集成系统实现：
+- **三层文档系统** - 在正确的时间自动加载正确的文档
+- **带子代理的自定义命令** - 编排已经了解您项目的专门代理
+- 结果：无需手动加载上下文，所有代理保持一致的知识
 
-| Service | Purpose | Benefit |
+---
+
+### 挑战 2：AI 可靠性
+
+**问题：**
+```
+❌ 过时的库文档
+❌ 虚构的 API 方法
+❌ 不一致的架构决策
+```
+
+**解决方案：**
+✅ 通过 MCP 集成实现**"四眼原则"**：
+
+| 服务 | 目的 | 益处 |
 |---------|---------|---------|
-| **Context7** | Real-time library docs | Current APIs, not training data |
-| **Gemini** | Architecture consultation | Cross-validation & best practices |
+| **Context7** | 实时库文档 | 当前 API，而非训练数据 |
+| **Gemini** | 架构咨询 | 交叉验证和最佳实践 |
 
-*Result: Fewer errors, better code, current standards*
-
----
-
-### Challenge 3: Automation Without Complexity
-
-**The Problem:**
-```
-❌ Manual context loading for every session
-❌ Repetitive command sequences
-❌ No feedback when tasks complete
-```
-
-**The Solution:**
-✅ **Intelligent automation** through hooks and commands:
-- Automatic updates of documentation through custom commands
-- Context injection for all Sub-agents and Gemini MCP calls 
-- Audio notifications for task completion (optional)
-- One-command workflows for complex tasks
+*结果：更少错误，更好的代码，符合当前标准*
 
 ---
 
-### 🎉 The Result
+### 挑战 3：无复杂性的自动化
 
-> **Claude Code transforms from a helpful tool into a reliable development partner that remembers your project context, validates its own work, and handles the tedious stuff automatically.**
+**问题：**
+```
+❌ 每次会话都需要手动加载上下文
+❌ 重复的命令序列
+❌ 任务完成时没有反馈
+```
+
+**解决方案：**
+✅ 通过钩子和命令实现**智能自动化**：
+- 通过自定义命令自动更新文档
+- 为所有子代理和 Gemini MCP 调用注入上下文
+- 任务完成时的音频通知（可选）
+- 复杂任务的一键式工作流
+
+---
+
+### 🎉 最终效果
+
+> **Claude Code 从一个有用的工具转变为一个可靠的开发伙伴，能够记住您的项目上下文，验证自己的工作，并自动处理繁琐的任务。**
 
 
 [![Demo-Video auf YouTube](https://img.youtube.com/vi/kChalBbMs4g/0.jpg)](https://youtu.be/kChalBbMs4g)
 
 
 
+## 快速开始
 
-## Quick Start
+### 前提条件
 
-### Prerequisites
+- **必需**：[Claude Code](https://github.com/anthropics/claude-code)
+- **推荐**：MCP 服务器，如 [Context7](https://github.com/upstash/context7) 和 [Gemini Assistant](https://github.com/peterkrueck/mcp-gemini-assistant)
 
-- **Required**: [Claude Code](https://github.com/anthropics/claude-code)
-- **Recommended**: MCP servers like [Context7](https://github.com/upstash/context7) and [Gemini Assistant](https://github.com/peterkrueck/mcp-gemini-assistant)
+### 安装
 
-### Installation
+#### 选项 1：快速安装（推荐）
 
-#### Option 1: Quick Install (Recommended)
-
-Run this single command in your terminal:
+在终端中运行以下命令：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/peterkrueck/Claude-Code-Development-Kit/main/install.sh | bash
 ```
 
-This will:
-1. Download the framework
-2. Guide you through an interactive setup
-3. Install everything in your chosen project directory
-4. Provide links to optional MCP server installations
+这将：
+1. 下载框架
+2. 引导您完成交互式设置
+3. 在您选择的项目目录中安装所有内容
+4. 提供可选 MCP 服务器安装的链接
 
 
 https://github.com/user-attachments/assets/0b4a1e69-bddb-4b58-8de9-35f97919bf44
 
 
-#### Option 2: Clone and Install
+#### 选项 2：克隆并安装
 
 ```bash
 git clone https://github.com/peterkrueck/Claude-Code-Development-Kit.git
@@ -115,60 +114,60 @@ cd Claude-Code-Development-Kit
 ./setup.sh
 ```
 
-### What Gets Installed
+### 安装内容
 
-The setup script will create the following structure in your project:
+设置脚本将在您的项目中创建以下结构：
 
 ```
 your-project/
-├── commands/              # AI orchestration templates (.md files)
-├── hooks/                 # Automation scripts
-│   ├── config/            # Security patterns configuration
-│   ├── sounds/            # Notification sounds (if notifications enabled)
-│   └── *.sh               # Hook scripts (based on your selections)
-├── docs/                  # Documentation templates and examples
-│   ├── ai-context/        # Core documentation files
-│   ├── open-issues/       # Issue tracking examples
-│   └── specs/             # Specification templates
-├── logs/                  # Hook execution logs (created at runtime)
+├── commands/              # AI 编排模板（.md 文件）
+├── hooks/                 # 自动化脚本
+│   ├── config/            # 安全模式配置
+│   ├── sounds/            # 通知声音（如果启用通知）
+│   └── *.sh               # 钩子脚本（基于您的选择）
+├── docs/                  # 文档模板和示例
+│   ├── ai-context/        # 核心文档文件
+│   ├── open-issues/       # 问题跟踪示例
+│   └── specs/             # 规范模板
+├── logs/                  # 钩子执行日志（运行时创建）
 ├── .claude/               
-│   └── settings.local.json # Generated Claude Code configuration
-├── CLAUDE.md              # Your project's AI context (from template)
-└── MCP-ASSISTANT-RULES.md # MCP coding standards (if Gemini-Assistant-MCP selected)
+│   └── settings.local.json # 生成的 Claude Code 配置
+├── CLAUDE.md              # 您项目的 AI 上下文（从模板）
+└── MCP-ASSISTANT-RULES.md # MCP 编码标准（如果选择了 Gemini-Assistant-MCP）
 ```
 
-**Note**: The exact files installed depend on your choices during setup (MCP servers, notifications, etc.)
+**注意**：具体安装的文件取决于您在设置过程中的选择（MCP 服务器、通知等）。
 
-### Post-Installation Setup
+### 安装后设置
 
-1. **Customize your AI context**:
-   - Edit `CLAUDE.md` with your project standards
-   - Update `docs/ai-context/project-structure.md` with your tech stack
+1. **自定义您的 AI 上下文**：
+   - 使用您的项目标准编辑 `CLAUDE.md`
+   - 使用您的技术栈更新 `docs/ai-context/project-structure.md`
 
-2. **Install MCP servers** (if selected during setup):
-   - Follow the links provided by the installer
-   - Configure in `.claude/settings.local.json`
+2. **安装 MCP 服务器**（如果在设置期间选择）：
+   - 按照安装程序提供的链接操作
+   - 在 `.claude/settings.local.json` 中配置
 
-3. **Test your installation**:
+3. **测试您的安装**：
    ```bash
    claude
-   /full-context "analyze my project structure"
+   /full-context "分析我的项目结构"
    ```
 
 
-## Terminology
+## 术语表
 
-- **CLAUDE.md** - Master context files containing project-specific AI instructions, coding standards, and integration patterns
-- **CONTEXT.md** - Component and feature-level documentation files (Tier 2 and Tier 3) that provide specific implementation details and patterns
-- **MCP (Model Context Protocol)** - Standard for integrating external AI services with Claude Code
-- **Sub-agents** - Specialized AI agents spawned by Claude Code to work on specific aspects of a task in parallel
-- **3-Tier Documentation** - Hierarchical organization (Foundation/Component/Feature) that minimizes maintenance while maximizing AI effectiveness
-- **Auto-loading** - Automatic inclusion of relevant documentation when commands execute
-- **Hooks** - Shell scripts that execute at specific points in Claude Code's lifecycle for security, automation, and UX enhancements
+- **CLAUDE.md** - 包含项目特定 AI 指令、编码标准和集成模式的主上下文文件
+- **CONTEXT.md** - 组件和功能级文档文件（第 2 层和第 3 层），提供具体的实现细节和模式
+- **MCP（模型上下文协议）** - 将外部 AI 服务与 Claude Code 集成的标准
+- **子代理（Sub-agents）** - Claude Code 生成的专门 AI 代理，并行处理任务的特定方面
+- **三层文档** - 分层组织（基础/组件/功能），最小化维护同时最大化 AI 效率
+- **自动加载** - 命令执行时自动包含相关文档
+- **钩子（Hooks）** - 在 Claude Code 生命周期的特定点执行的 Shell 脚本，用于安全、自动化和用户体验增强
 
-## Architecture
+## 架构
 
-### Integrated Intelligence Loop
+### 集成智能循环
 
 ```
                         CLAUDE CODE
@@ -177,13 +176,13 @@ your-project/
                    │    COMMANDS      │
                    │                 │
                    └────────┬────────┘
-                  Multi-agent│orchestration
-                   Parallel │execution
-                   Dynamic  │scaling
+                  多代理编排│
+                   并行执行│
+                   动态扩展│
                            ╱│╲
                           ╱ │ ╲
-          Routes agents  ╱  │  ╲  Leverages
-          to right docs ╱   │   ╲ expertise
+          路由代理到     ╱  │  ╲  利用
+          正确文档      ╱   │   ╲ 专家知识
                        ╱    │    ╲
                       ▼     │     ▼
          ┌─────────────────┐│┌─────────────────┐
@@ -191,176 +190,175 @@ your-project/
          │  DOCUMENTATION  │││  MCP SERVERS   │
          │                 │││                 │
          └─────────────────┘│└─────────────────┘
-          3-tier structure  │  Context7 + Gemini
-          Auto-loading      │  Real-time updates
-          Context routing   │  AI consultation
+          三层结构           │  Context7 + Gemini
+          自动加载           │  实时更新
+          上下文路由         │  AI 咨询
                       ╲     │     ╱
                        ╲    │    ╱
-        Provides project╲   │   ╱ Enhances with
-        context for      ╲  │  ╱  current best
-        consultation      ╲ │ ╱   practices
+        为咨询提供       ╲   │   ╱ 增强当前
+        项目上下文        ╲  │  ╱  最佳实践
                            ╲│╱
                             ▼
-                    Integrated Workflow
+                    集成工作流
 ```
 
-### Auto-Loading Mechanism
+### 自动加载机制
 
-Every command execution automatically loads critical documentation:
+每次命令执行都会自动加载关键文档：
 
 ```
-@/CLAUDE.md                              # Master AI context and coding standards
-@/docs/ai-context/project-structure.md   # Complete technology stack and file tree
-@/docs/ai-context/docs-overview.md       # Documentation routing map
+@/CLAUDE.md                              # 主 AI 上下文和编码标准
+@/docs/ai-context/project-structure.md   # 完整的技术栈和文件树
+@/docs/ai-context/docs-overview.md       # 文档路由图
 ```
 
-The `subagent-context-injector.sh` hook extends auto-loading to all sub-agents:
-- Sub-agents spawned via the Task tool automatically receive the same core documentation
-- No manual context inclusion needed in Task prompts
-- Ensures consistent knowledge across all agents in multi-agent workflows
+`subagent-context-injector.sh` 钩子将自动加载扩展到所有子代理：
+- 通过 Task 工具生成的子代理自动接收相同的核心文档
+- Task 提示中无需手动包含上下文
+- 确保多代理工作流中所有代理的知识一致
 
-This ensures:
-- Consistent AI behavior across all sessions and sub-agents
-- Zero manual context management at any level
+这确保了：
+- 所有会话和子代理中 AI 行为的一致性
+- 任何级别都无需手动管理上下文
 
-### Component Integration
+### 组件集成
 
-**Commands ↔️ Documentation**
-- Commands determine which documentation tiers to load based on task complexity
-- Documentation structure guides agent spawning patterns
-- Commands update documentation to maintain current context
+**命令 ↔️ 文档**
+- 命令根据任务复杂度决定加载哪些文档层
+- 文档结构指导代理生成模式
+- 命令更新文档以保持当前上下文
 
-**Commands ↔️ MCP Servers**
-- Context7 provides up-to-date library documentation
-- Gemini offers architectural consultation for complex problems
-- Integration happens seamlessly within command workflows
+**命令 ↔️ MCP 服务器**
+- Context7 提供最新的库文档
+- Gemini 为复杂问题提供架构咨询
+- 集成在命令工作流中无缝进行
 
-**Documentation ↔️ MCP Servers**
-- Project structure and MCP assistant rules auto-attach to Gemini consultations
-- Ensures external AI understands specific architecture and coding standards
-- Makes all recommendations project-relevant and standards-compliant
+**文档 ↔️ MCP 服务器**
+- 项目结构和 MCP 助手规则自动附加到 Gemini 咨询
+- 确保外部 AI 理解特定架构和编码标准
+- 使所有建议与项目相关并符合标准
 
-### Hooks Integration
+### 钩子集成
 
-The kit includes battle-tested hooks that enhance Claude Code's capabilities:
+套件包含经过实战检验的钩子，增强 Claude Code 的能力：
 
-- **Security Scanner** - Prevents accidental exposure of secrets when using MCP servers
-- **Gemini Context Injector** - Automatically includes project structure in Gemini consultations
-- **Subagent Context Injector** - Ensures all sub-agents receive core documentation automatically
-- **Notification System** - Provides non-blocking audio feedback for task completion and input requests (optional)
+- **安全扫描器** - 防止在使用 MCP 服务器时意外暴露秘密
+- **Gemini 上下文注入器** - 自动在 Gemini 咨询中包含项目结构
+- **子代理上下文注入器** - 确保所有子代理自动接收核心文档
+- **通知系统** - 为任务完成和输入请求提供非阻塞音频反馈（可选）
 
-These hooks integrate seamlessly with the command and MCP server workflows, providing:
-- Pre-execution security checks for all external AI calls
-- Automatic context enhancement for both external AI and sub-agents
-- Consistent knowledge across all agents in multi-agent workflows
-- Developer awareness through pleasant, non-blocking audio notifications
+这些钩子与命令和 MCP 服务器工作流无缝集成，提供：
+- 所有外部 AI 调用的预执行安全检查
+- 外部 AI 和子代理的自动上下文增强
+- 多代理工作流中所有代理的知识一致性
+- 通过愉悦的非阻塞音频通知提高开发者感知
 
-## Common Tasks
+## 常见任务
 
-### Starting New Feature Development
+### 开始新功能开发
 
 ```bash
-/full-context "implement user authentication across backend and frontend"
+/full-context "在后端和前端实现用户认证"
 ```
 
-The system:
-1. Auto-loads project documentation
-2. Spawns specialized agents (security, backend, frontend)
-3. Consults Context7 for authentication framework documentation
-4. Asks Gemini 2.5 pro for feedback and improvement suggestions
-4. Provides comprehensive analysis and implementation plan
+系统将：
+1. 自动加载项目文档
+2. 生成专门的代理（安全、后端、前端）
+3. 咨询 Context7 获取认证框架文档
+4. 向 Gemini 2.5 pro 征求反馈和改进建议
+4. 提供全面的分析和实施计划
 
-### Code Review with Multiple Perspectives
+### 多视角代码审查
 
 ```bash
-/code-review "review authentication implementation"
+/code-review "审查认证实现"
 ```
 
-Multiple agents analyze:
-- Security vulnerabilities
-- Performance implications
-- Architectural alignment
-- Integration impacts
+多个代理分析：
+- 安全漏洞
+- 性能影响
+- 架构对齐
+- 集成影响
 
-### Maintaining Documentation Currency
+### 保持文档最新
 
 ```bash
-/update-docs "document authentication changes"
+/update-docs "记录认证更改"
 ```
 
-Automatically:
-- Updates affected CLAUDE.md files across all tiers
-- Keeps project-structure.md and docs-overview.md up-to-date
-- Maintains context for future AI sessions
-- Ensures documentation matches implementation
+自动：
+- 更新所有层级的受影响 CLAUDE.md 文件
+- 保持 project-structure.md 和 docs-overview.md 最新
+- 为未来的 AI 会话维护上下文
+- 确保文档与实现匹配
 
-## Creating Your Project Structure
+## 创建您的项目结构
 
-After installation, you'll add your own project-specific documentation:
+安装后，您将添加项目特定的文档：
 
 ```
 your-project/
 ├── .claude/
-│   ├── commands/              # AI orchestration templates
-│   ├── hooks/                 # Security and automation hooks
-│   │   ├── config/            # Hook configuration files
-│   │   ├── sounds/            # Notification audio files
+│   ├── commands/              # AI 编排模板
+│   ├── hooks/                 # 安全和自动化钩子
+│   │   ├── config/            # 钩子配置文件
+│   │   ├── sounds/            # 通知音频文件
 │   │   ├── gemini-context-injector.sh
 │   │   ├── mcp-security-scan.sh
 │   │   ├── notify.sh
 │   │   └── subagent-context-injector.sh
-│   └── settings.json          # Claude Code configuration
+│   └── settings.json          # Claude Code 配置
 ├── docs/
-│   ├── ai-context/            # Foundation documentation (Tier 1)
-│   │   ├── docs-overview.md   # Documentation routing map
-│   │   ├── project-structure.md # Technology stack and file tree
-│   │   ├── system-integration.md # Cross-component patterns
-│   │   ├── deployment-infrastructure.md # Infrastructure context
-│   │   └── handoff.md        # Session continuity
-│   ├── open-issues/           # Issue tracking templates
-│   ├── specs/                 # Feature specifications
-│   └── README.md              # Documentation system guide
-├── CLAUDE.md                  # Master AI context (Tier 1)
+│   ├── ai-context/            # 基础文档（第 1 层）
+│   │   ├── docs-overview.md   # 文档路由图
+│   │   ├── project-structure.md # 技术栈和文件树
+│   │   ├── system-integration.md # 跨组件模式
+│   │   ├── deployment-infrastructure.md # 基础设施上下文
+│   │   └── handoff.md        # 会话连续性
+│   ├── open-issues/           # 问题跟踪模板
+│   ├── specs/                 # 功能规范
+│   └── README.md              # 文档系统指南
+├── CLAUDE.md                  # 主 AI 上下文（第 1 层）
 ├── backend/
-│   └── CONTEXT.md              # Backend context (Tier 2) - create this
+│   └── CONTEXT.md              # 后端上下文（第 2 层）- 创建此文件
 └── backend/src/api/
-    └── CONTEXT.md              # API context (Tier 3) - create this
+    └── CONTEXT.md              # API 上下文（第 3 层）- 创建此文件
 ```
 
-The framework provides templates for CONTEXT.md files in `docs/`:
-- `docs/CONTEXT-tier2-component.md` - Use as template for component-level docs
-- `docs/CONTEXT-tier3-feature.md` - Use as template for feature-level docs
+框架在 `docs/` 中提供 CONTEXT.md 文件模板：
+- `docs/CONTEXT-tier2-component.md` - 用作组件级文档模板
+- `docs/CONTEXT-tier3-feature.md` - 用作功能级文档模板
 
-## Configuration
+## 配置
 
-The kit is designed for adaptation:
+套件设计用于适配：
 
-- **Commands** - Modify orchestration patterns in `.claude/commands/`
-- **Documentation** - Adjust tier structure for your architecture
-- **MCP Integration** - Add additional servers for specialized expertise
-- **Hooks** - Customize security patterns, add new hooks, or modify notifications in `.claude/hooks/`
-- **MCP Assistant Rules** - Copy `docs/MCP-ASSISTANT-RULES.md` template to project root and customize for project-specific standards
+- **命令** - 在 `.claude/commands/` 中修改编排模式
+- **文档** - 根据您的架构调整层级结构
+- **MCP 集成** - 添加额外的服务器以获得专门的专业知识
+- **钩子** - 在 `.claude/hooks/` 中自定义安全模式、添加新钩子或修改通知
+- **MCP 助手规则** - 将 `docs/MCP-ASSISTANT-RULES.md` 模板复制到项目根目录并为项目特定标准进行自定义
 
-## Best Practices
+## 最佳实践
 
-1. **Let documentation guide development** - The 3-tier structure reflects natural boundaries
-2. **Update documentation immediately** - Use `/update-docs` after significant changes
-3. **Trust the auto-loading** - Avoid manual context management
-4. **Scale complexity naturally** - Simple tasks stay simple, complex tasks get sophisticated analysis
+1. **让文档指导开发** - 三层结构反映自然边界
+2. **立即更新文档** - 重大更改后使用 `/update-docs`
+3. **信任自动加载** - 避免手动上下文管理
+4. **自然扩展复杂性** - 简单任务保持简单，复杂任务获得复杂分析
 
 
-## Documentation
+## 文档
 
-- [Documentation System Guide](docs/) - Understanding the 3-tier architecture
-- [Commands Reference](commands/) - Detailed command usage
-- [MCP Integration](docs/CLAUDE.md) - Configuring external services
-- [Hooks System](hooks/) - Security scanning, context injection, and notifications
-- [Changelog](CHANGELOG.md) - Version history and migration guides
+- [文档系统指南](docs/) - 理解三层架构
+- [命令参考](commands/) - 详细的命令使用
+- [MCP 集成](docs/CLAUDE.md) - 配置外部服务
+- [钩子系统](hooks/) - 安全扫描、上下文注入和通知
+- [更新日志](CHANGELOG.md) - 版本历史和迁移指南
 
-## Contributing
+## 贡献
 
-The kit represents one approach to AI-assisted development. Contributions and adaptations are welcome.
+该套件代表了 AI 辅助开发的一种方法。欢迎贡献和改编。
 
-## Connect
+## 联系
 
-Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/peterkrueck/) if you have questions, need clarification, or wish to provide feedback.
+如果您有疑问、需要澄清或希望提供反馈，请随时在 [LinkedIn](https://www.linkedin.com/in/peterkrueck/) 上与我联系。

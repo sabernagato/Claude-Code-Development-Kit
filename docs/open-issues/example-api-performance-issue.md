@@ -1,79 +1,79 @@
-# API Performance Issue - Example Template
+# API 性能问题 - 示例模板
 
-## Issue Description
+## 问题描述
 
-Describe the specific performance issue or bug that needs to be addressed. Include symptoms, affected features, and user impact.
+描述需要解决的具体性能问题或错误。包括症状、受影响的功能和对用户的影响。
 
-Example: "API endpoint `/api/data/process` has intermittent high latency (>5 seconds) under normal load conditions, causing user timeout errors."
+示例："API 端点 `/api/data/process` 在正常负载条件下有间歇性高延迟（>5 秒），导致用户超时错误。"
 
-## Root Cause
+## 根本原因
 
-Detailed analysis of what's causing the issue. Include:
-- Technical root cause
-- Contributing factors
-- System conditions that trigger the issue
+导致问题的详细分析。包括：
+- 技术根本原因
+- 促成因素
+- 触发问题的系统条件
 
-Example: "Database query optimization needed for complex joins. Current query scans entire table without proper indexing."
+示例："复杂连接需要数据库查询优化。当前查询在没有适当索引的情况下扫描整个表。"
 
-## Impact Assessment
+## 影响评估
 
-- **Severity**: Critical/High/Medium/Low
-- **Affected Users**: Percentage or number of users impacted
-- **Business Impact**: Revenue, user experience, or operational impact
-- **Workarounds**: Any temporary solutions currently in place
+- **严重程度**：严重/高/中/低
+- **受影响用户**：受影响用户的百分比或数量
+- **业务影响**：收入、用户体验或运营影响
+- **临时解决方案**：当前实施的任何临时解决方案
 
-## Proposed Solution
+## 建议解决方案
 
-### Technical Approach
-Detailed technical solution including:
-- Code changes required
-- Architecture modifications
-- Database schema updates
-- Performance improvements expected
+### 技术方法
+详细的技术解决方案，包括：
+- 所需的代码更改
+- 架构修改
+- 数据库模式更新
+- 预期的性能改进
 
-### Implementation Plan
-1. **Phase 1**: Initial fixes (timeline)
-2. **Phase 2**: Optimization improvements (timeline)
-3. **Phase 3**: Monitoring and validation (timeline)
+### 实施计划
+1. **第 1 阶段**：初始修复（时间表）
+2. **第 2 阶段**：优化改进（时间表）
+3. **第 3 阶段**：监控和验证（时间表）
 
-## Testing Strategy
+## 测试策略
 
-- **Unit Tests**: Specific test cases to validate the fix
-- **Integration Tests**: End-to-end testing scenarios
-- **Performance Tests**: Load testing and benchmarking
-- **Regression Tests**: Ensure no existing functionality breaks
+- **单元测试**：验证修复的特定测试用例
+- **集成测试**：端到端测试场景
+- **性能测试**：负载测试和基准测试
+- **回归测试**：确保现有功能不会中断
 
-## Related Files
+## 相关文件
 
-List all files that need to be modified:
-- `src/api/routes/data.py` - Main endpoint logic
-- `src/database/models.py` - Database model updates
-- `src/utils/query_optimizer.py` - Query optimization utilities
-- `tests/test_api_performance.py` - Performance test suite
+列出所有需要修改的文件：
+- `src/api/routes/data.py` - 主要端点逻辑
+- `src/database/models.py` - 数据库模型更新
+- `src/utils/query_optimizer.py` - 查询优化工具
+- `tests/test_api_performance.py` - 性能测试套件
 
-## References
+## 参考资料
 
-- [External documentation or APIs]
-- [Related GitHub issues or PRs]
-- [Performance benchmarking results]
-- [Stack Overflow discussions or solutions]
+- [外部文档或 API]
+- [相关的 GitHub 问题或 PR]
+- [性能基准测试结果]
+- [Stack Overflow 讨论或解决方案]
 
-## Status
+## 状态
 
-- [ ] **Open** - Issue identified and documented
-- [ ] **In Progress** - Solution being implemented
-- [ ] **Testing** - Fix implemented, undergoing testing
-- [ ] **Fixed** - Issue resolved and deployed
-- [ ] **Closed** - Issue confirmed resolved in production
+- [ ] **开放** - 问题已识别并记录
+- [ ] **进行中** - 正在实施解决方案
+- [ ] **测试中** - 修复已实施，正在进行测试
+- [ ] **已修复** - 问题已解决并部署
+- [ ] **已关闭** - 问题在生产环境中确认已解决
 
-## Implementation Notes
+## 实施记录
 
-Track progress and implementation details:
-- Date started: [DATE]
-- Key decisions made: [DECISIONS]
-- Challenges encountered: [CHALLENGES]
-- Performance improvements achieved: [METRICS]
+跟踪进度和实施细节：
+- 开始日期：[日期]
+- 做出的关键决策：[决策]
+- 遇到的挑战：[挑战]
+- 实现的性能改进：[指标]
 
 ---
 
-*This template provides a structured approach to documenting and tracking technical issues. Customize sections based on your project's specific needs and workflow.*
+*本模板提供了一种结构化的方法来记录和跟踪技术问题。根据您项目的具体需求和工作流程自定义各个部分。*

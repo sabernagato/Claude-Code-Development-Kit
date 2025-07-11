@@ -1,162 +1,162 @@
-# [FEATURE NAME] Documentation (Tier 3)
+# [功能名称] 文档 (第 3 层)
 
-*This file documents [feature/module] patterns, architectural decisions, and implementations within [component name].*
+*此文件记录 [组件名称] 内的 [功能/模块] 模式、架构决策和实现。*
 
-## [Feature] Architecture Overview
+## [功能] 架构概述
 
-### [Architecture Decision Title]
+### [架构决策标题]
 
-**Context**: [Situation that led to this architectural decision]
+**背景**: [导致此架构决策的情况]
 
-**Decision**: [What was decided and implemented]
+**决策**: [决定和实现的内容]
 
-**Reasoning**:
-- **[Benefit 1]**: [Why this approach provides this benefit]
-- **[Benefit 2]**: [Technical or business advantage]  
-- **[Benefit 3]**: [Performance or maintainability benefit]
-- **[Benefit 4]**: [Developer experience or operational benefit]
+**理由**:
+- **[优势 1]**: [为什么这种方法提供此优势]
+- **[优势 2]**: [技术或业务优势]  
+- **[优势 3]**: [性能或可维护性优势]
+- **[优势 4]**: [开发者体验或运营优势]
 
-**Consequences**:
-- [Positive outcome from this decision]
-- [Technical improvement achieved]
-- [Operational or maintenance benefit]
-- [User experience enhancement]
+**结果**:
+- [此决策的积极成果]
+- [实现的技术改进]
+- [运营或维护优势]
+- [用户体验增强]
 
-## [Feature] Implementation Patterns
+## [功能] 实现模式
 
-### [Implementation Pattern 1]
+### [实现模式 1]
 
-**File Organization**:
+**文件组织**:
 ```
-[feature-directory]/
-├── [file1].[ext]      # [Purpose and responsibility]
-├── [file2].[ext]      # [Purpose and responsibility]  
-├── [file3].[ext]      # [Purpose and responsibility]
-└── [file4].[ext]      # [Purpose and responsibility]
+[功能目录]/
+├── [文件1].[扩展名]      # [用途和职责]
+├── [文件2].[扩展名]      # [用途和职责]  
+├── [文件3].[扩展名]      # [用途和职责]
+└── [文件4].[扩展名]      # [用途和职责]
 ```
 
-**Architecture Benefits**:
-- **[Benefit 1]**: [How this organization provides this benefit]
-- **[Benefit 2]**: [Technical advantage of this structure]
-- **[Benefit 3]**: [Maintainability or scalability benefit]
-- **[Benefit 4]**: [Developer experience improvement]
+**架构优势**:
+- **[优势 1]**: [这种组织如何提供此优势]
+- **[优势 2]**: [此结构的技术优势]
+- **[优势 3]**: [可维护性或可扩展性优势]
+- **[优势 4]**: [开发者体验改进]
 
-### [Implementation Pattern 2]
+### [实现模式 2]
 
-**Architecture Decision**: [Technical approach taken]
+**架构决策**: [采取的技术方法]
 
-**Context**: [Background and requirements that led to this approach]
+**背景**: [导致此方法的背景和需求]
 
-**Decision**: [Specific implementation choice made]
+**决策**: [做出的具体实现选择]
 
-**Reasoning**:
-- **[Technical Reason]**: [Why this was the best technical choice]
-- **[Performance Reason]**: [Performance benefits]
-- **[Maintainability Reason]**: [Long-term maintenance benefits]
-- **[Integration Reason]**: [How it integrates with other components]
+**理由**:
+- **[技术原因]**: [为什么这是最佳技术选择]
+- **[性能原因]**: [性能优势]
+- **[可维护性原因]**: [长期维护优势]
+- **[集成原因]**: [如何与其他组件集成]
 
-**Implementation Details**:
+**实现细节**:
 ```[language]
-// [Description of what this code demonstrates]
-[detailed code example showing the implementation pattern]
+// [此代码演示的内容描述]
+[显示实现模式的详细代码示例]
 ```
 
-### [Implementation Pattern 3]
+### [实现模式 3]
 
-**[Pattern Name]**: [Description of the pattern]
-
-```[language]
-// [Code example title]
-[comprehensive code example showing the pattern in action]
-```
-
-**Implementation Benefits**:
-- **[Benefit 1]**: [Specific advantage this implementation provides]
-- **[Benefit 2]**: [Performance or reliability improvement]
-- **[Benefit 3]**: [Developer experience enhancement]
-
-## [Technical Domain] Implementation
-
-### [Technical Feature 1]
-
-**[Feature Description]**: [What this feature does and why it's important]
-
-**Architecture Pattern**:
-```[language]
-// [Description of the architectural approach]
-[code example demonstrating the architecture]
-```
-
-**Key Implementation Details**:
-- **[Detail 1]**: [Important implementation consideration]
-- **[Detail 2]**: [Technical constraint or optimization]
-- **[Detail 3]**: [Integration or performance consideration]
-
-### [Technical Feature 2]
-
-**Implementation Approach**: [How this feature is implemented]
+**[模式名称]**: [模式描述]
 
 ```[language]
-// [Code example description]
-[detailed implementation example]
+// [代码示例标题]
+[展示模式实际应用的综合代码示例]
 ```
 
-**Technical Considerations**:
-- **[Consideration 1]**: [Important technical factor]
-- **[Consideration 2]**: [Performance or scalability factor]
-- **[Consideration 3]**: [Maintenance or testing consideration]
+**实现优势**:
+- **[优势 1]**: [此实现提供的具体优势]
+- **[优势 2]**: [性能或可靠性改进]
+- **[优势 3]**: [开发者体验增强]
 
-## [Integration/Communication] Patterns
+## [技术领域] 实现
 
-### [Integration Pattern 1]
+### [技术功能 1]
 
-**Context**: [When and why this integration pattern is used]
+**[功能描述]**: [此功能的作用及其重要性]
 
-**Implementation**:
+**架构模式**:
 ```[language]
-// [Integration example description]
-[code showing integration implementation]
+// [架构方法描述]
+[演示架构的代码示例]
 ```
 
-**Benefits**:
-- **[Integration Benefit 1]**: [How this improves system integration]
-- **[Integration Benefit 2]**: [Performance or reliability improvement]
+**关键实现细节**:
+- **[细节 1]**: [重要的实现考虑]
+- **[细节 2]**: [技术约束或优化]
+- **[细节 3]**: [集成或性能考虑]
 
-### [Integration Pattern 2]
+### [技术功能 2]
 
-**Pattern Description**: [What problem this integration pattern solves]
+**实现方法**: [此功能的实现方式]
 
 ```[language]
-// [Integration code example]
-[implementation showing integration pattern]
+// [代码示例描述]
+[详细的实现示例]
 ```
 
-## Performance & Optimization Details
+**技术考虑**:
+- **[考虑 1]**: [重要的技术因素]
+- **[考虑 2]**: [性能或可扩展性因素]
+- **[考虑 3]**: [维护或测试考虑]
 
-### [Performance Optimization 1]
-**Optimization**: [What was optimized and how]
-- **Before**: [Previous performance characteristics]
-- **After**: [Improved performance metrics]
-- **Implementation**: [How the optimization was achieved]
+## [集成/通信] 模式
 
-### [Performance Optimization 2]  
-**Technical Improvement**: [Specific performance enhancement]
-- **Impact**: [Measurable improvement achieved]
-- **Method**: [Technical approach used]
-- **Trade-offs**: [Any compromises made for the optimization]
+### [集成模式 1]
 
-## Error Handling & Edge Cases
+**背景**: [何时以及为什么使用此集成模式]
 
-### [Error Scenario 1]
-**Scenario**: [What error condition this handles]
-**Handling**: [How the error is detected and managed]
-**Recovery**: [How the system recovers from this error]
+**实现**:
+```[language]
+// [集成示例描述]
+[显示集成实现的代码]
+```
 
-### [Error Scenario 2]
-**Edge Case**: [Unusual condition that needs handling]  
-**Solution**: [How the implementation handles this case]
-**Validation**: [How this handling is tested or verified]
+**优势**:
+- **[集成优势 1]**: [如何改善系统集成]
+- **[集成优势 2]**: [性能或可靠性改进]
+
+### [集成模式 2]
+
+**模式描述**: [此集成模式解决的问题]
+
+```[language]
+// [集成代码示例]
+[显示集成模式的实现]
+```
+
+## 性能与优化细节
+
+### [性能优化 1]
+**优化**: [优化的内容和方法]
+- **优化前**: [之前的性能特征]
+- **优化后**: [改进的性能指标]
+- **实现**: [如何实现优化]
+
+### [性能优化 2]  
+**技术改进**: [具体的性能增强]
+- **影响**: [可衡量的改进成果]
+- **方法**: [使用的技术方法]
+- **权衡**: [为优化做出的任何妥协]
+
+## 错误处理与边缘情况
+
+### [错误场景 1]
+**场景**: [处理的错误条件]
+**处理**: [如何检测和管理错误]
+**恢复**: [系统如何从此错误中恢复]
+
+### [错误场景 2]
+**边缘情况**: [需要处理的异常条件]  
+**解决方案**: [实现如何处理此情况]
+**验证**: [如何测试或验证此处理]
 
 ---
 
-*This feature documentation provides detailed implementation context for AI-assisted development. For broader component context, see the component-level CONTEXT.md file.*
+*此功能文档为 AI 辅助开发提供详细的实现上下文。有关更广泛的组件上下文，请参阅组件级 CONTEXT.md 文件。*
