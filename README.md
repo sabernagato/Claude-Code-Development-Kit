@@ -1,8 +1,7 @@
 # Claude Code 开发套件
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/peterkrueck/Claude-Code-Development-Kit/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Changelog](https://img.shields.io/badge/changelog-v2.0.0-orange.svg)](CHANGELOG.md)
+[![Changelog](https://img.shields.io/badge/changelog-v2.1.0-orange.svg)](CHANGELOG.md)
 
 一个将 Claude Code 转变为编排式开发环境的集成系统，通过自动化文档管理、多代理工作流和外部 AI 专家系统实现。
 

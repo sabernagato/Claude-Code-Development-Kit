@@ -43,6 +43,24 @@
 
 **工作原理**：生成专门的代理（安全性、性能、架构），并行分析。每个代理专注于对生产代码重要的关键问题。
 
+### 🧠 `/gemini-consult` *(需要 Gemini MCP 服务器)*
+**用途**：与 Gemini 进行深入、迭代的对话，用于复杂问题解决和架构指导。
+
+**使用时机**：
+- 处理复杂的架构决策
+- 需要实施方法的专家指导
+- 调试跨多个文件的复杂问题
+- 探索优化策略
+- 需要一个困难问题的思考伙伴时
+
+**工作原理**：创建与 Gemini 的持久对话会话，自动附加项目上下文和 MCP-ASSISTANT-RULES.md。通过后续问题和实施反馈支持迭代改进。
+
+**关键特性**：
+- 未提供参数时的上下文感知问题检测
+- 在整个问题生命周期中维护持久会话
+- 自动附加基础项目文档
+- 支持具有会话连续性的后续问题
+
 ### 📝 `/update-docs`
 **用途**：保持文档与代码更改同步，确保 AI 上下文保持最新。
 
@@ -111,6 +129,14 @@
 /refactor "@auth/large-auth-file.ts"          # 重构
 /code-review "review refactored auth"          # 验证质量
 /update-docs "document new auth structure"     # 保持文档最新
+```
+
+### 复杂问题解决
+```bash
+/gemini-consult "optimize real-time data pipeline" # 开始咨询
+# ... 实施建议的方法 ...
+/gemini-consult                                    # 跟进结果
+/update-docs "document optimization approach"      # 捕获洞察
 ```
 
 ## 自定义
