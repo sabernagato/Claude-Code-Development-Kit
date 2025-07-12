@@ -119,18 +119,18 @@ cd Claude-Code-Development-Kit
 
 ```
 your-project/
-├── commands/              # AI 编排模板（.md 文件）
-├── hooks/                 # 自动化脚本
-│   ├── config/            # 安全模式配置
-│   ├── sounds/            # 通知声音（如果启用通知）
-│   └── *.sh               # 钩子脚本（基于您的选择）
+├── .claude/
+│   ├── commands/          # AI 编排模板（.md 文件）
+│   ├── hooks/             # 自动化脚本
+│   │   ├── config/        # 安全模式配置
+│   │   ├── sounds/        # 通知声音（如果启用通知）
+│   │   └── *.sh           # 钩子脚本（基于您的选择）
+│   └── settings.local.json # 生成的 Claude Code 配置
 ├── docs/                  # 文档模板和示例
 │   ├── ai-context/        # 核心文档文件
 │   ├── open-issues/       # 问题跟踪示例
 │   └── specs/             # 规范模板
 ├── logs/                  # 钩子执行日志（运行时创建）
-├── .claude/               
-│   └── settings.local.json # 生成的 Claude Code 配置
 ├── CLAUDE.md              # 您项目的 AI 上下文（从模板）
 └── MCP-ASSISTANT-RULES.md # MCP 编码标准（如果选择了 Gemini-Assistant-MCP）
 ```
@@ -318,10 +318,15 @@ your-project/
 │   ├── specs/                 # 功能规范
 │   └── README.md              # 文档系统指南
 ├── CLAUDE.md                  # 主 AI 上下文（第 1 层）
+├── MCP-ASSISTANT-RULES.md     # MCP 编码标准（如果选择了 Gemini）
 ├── backend/
-│   └── CONTEXT.md              # 后端上下文（第 2 层）- 创建此文件
-└── backend/src/api/
-    └── CONTEXT.md              # API 上下文（第 3 层）- 创建此文件
+│   ├── **`CONTEXT.md`**       # 后端上下文（第 2 层）- 🔴 创建此文件
+│   └── src/api/
+│       └── **`CONTEXT.md`**   # API 上下文（第 3 层）- 🔴 创建此文件
+└── frontend/
+    ├── **`CONTEXT.md`**       # 前端上下文（第 2 层）- 🔴 创建此文件
+    └── src/components/
+        └── **`CONTEXT.md`**   # 组件上下文（第 3 层）- 🔴 创建此文件
 ```
 
 框架在 `docs/` 中提供 CONTEXT.md 文件模板：
