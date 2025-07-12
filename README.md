@@ -92,7 +92,7 @@ Claude Code 的输出质量直接取决于它对您项目的了解程度。随�
 在终端中运行以下命令：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/peterkrueck/Claude-Code-Development-Kit/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sabernagato/Claude-Code-Development-Kit/main/install.sh | bash
 ```
 
 这将：

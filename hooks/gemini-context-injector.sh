@@ -1,11 +1,11 @@
 #!/bin/bash
-# Gemini Context Injector Hook
-# Automatically adds project context files to new Gemini consultation sessions:
+# Gemini 上下文注入器钩子
+# 自动将项目上下文文件添加到新的 Gemini 咨询会话中：
 # - docs/ai-context/project-structure.md
 # - MCP-ASSISTANT-RULES.md
 #
-# This hook enhances Gemini consultations by automatically including your project's
-# structure documentation and assistant rules, ensuring the AI has complete context.
+# 此钩子通过自动包含项目的结构文档和助手规则来增强 Gemini 咨询，
+# 确保 AI 拥有完整的上下文。
 
 set -euo pipefail
 
@@ -15,13 +15,13 @@ PROJECT_STRUCTURE_FILE="$PROJECT_ROOT/docs/ai-context/project-structure.md"
 MCP_RULES_FILE="$PROJECT_ROOT/MCP-ASSISTANT-RULES.md"
 LOG_FILE="$SCRIPT_DIR/../logs/context-injection.log"
 
-# Ensure log directory exists
+# 确保日志目录存在
 mkdir -p "$(dirname "$LOG_FILE")"
 
-# Read input from stdin
+# 从标准输入读取输入
 INPUT_JSON=$(cat)
 
-# Function to log injection events
+# 记录注入事件的函数
 log_injection_event() {
     local event_type="$1"
     local details="$2"
@@ -29,27 +29,27 @@ log_injection_event() {
     echo "{\"timestamp\": \"$timestamp\", \"event\": \"$event_type\", \"details\": \"$details\"}" >> "$LOG_FILE"
 }
 
-# Main logic
+# 主逻辑
 main() {
-    # Extract tool information from stdin
+    # 从标准输入提取工具信息
     local tool_name=$(echo "$INPUT_JSON" | jq -r '.tool_name // ""')
     
-    # Only process Gemini consultation requests
+    # 仅处理 Gemini 咨询请求
     if [[ "$tool_name" != "mcp__gemini__consult_gemini" ]]; then
         echo '{"continue": true}'
         exit 0
     fi
     
-    # Extract tool arguments
+    # 提取工具参数
     local tool_args=$(echo "$INPUT_JSON" | jq -r '.tool_input // "{}"')
     
-    # Check if this is a new session (no session_id provided)
+    # 检查这是否为新会话（未提供 session_id）
     local session_id=$(echo "$tool_args" | jq -r '.session_id // ""' 2>/dev/null || echo "")
     
     if [[ -z "$session_id" || "$session_id" == "null" ]]; then
         log_injection_event "new_session_detected" "preparing_context_injection"
         
-        # Check if required files exist
+        # 检查必需文件是否存在
         local missing_files=""
         if [[ ! -f "$PROJECT_STRUCTURE_FILE" ]]; then
             missing_files="$missing_files project_structure.md"
@@ -58,25 +58,25 @@ main() {
             missing_files="$missing_files MCP-ASSISTANT-RULES.md"
         fi
         
-        # If either file is missing, log warning but continue
+        # 如果任一文件缺失，记录警告但继续执行
         if [[ -n "$missing_files" ]]; then
             log_injection_event "warning" "missing_files:$missing_files"
         fi
         
-        # If both files are missing, exit early
+        # 如果两个文件都缺失，提前退出
         if [[ ! -f "$PROJECT_STRUCTURE_FILE" ]] && [[ ! -f "$MCP_RULES_FILE" ]]; then
             echo '{"continue": true}'
             exit 0
         fi
         
-        # Extract current attached_files if any
+        # 提取当前的 attached_files（如果有）
         local current_files=$(echo "$tool_args" | jq -c '.attached_files // []' 2>/dev/null || echo "[]")
         
-        # Check if files are already included
+        # 检查文件是否已经包含
         local has_project_structure=$(echo "$current_files" | jq -e ".[] | select(. == \"$PROJECT_STRUCTURE_FILE\")" > /dev/null 2>&1 && echo "true" || echo "false")
         local has_mcp_rules=$(echo "$current_files" | jq -e ".[] | select(. == \"$MCP_RULES_FILE\")" > /dev/null 2>&1 && echo "true" || echo "false")
         
-        # If both files exist and are already included, skip
+        # 如果两个文件都存在且已包含，跳过
         if [[ -f "$PROJECT_STRUCTURE_FILE" ]] && [[ "$has_project_structure" == "true" ]] && \
            [[ -f "$MCP_RULES_FILE" ]] && [[ "$has_mcp_rules" == "true" ]]; then
             log_injection_event "skipped" "all_required_files_already_included"
@@ -84,7 +84,7 @@ main() {
             exit 0
         fi
         
-        # Add missing files to attached_files
+        # 将缺失的文件添加到 attached_files
         local modified_args="$tool_args"
         local files_added=""
         
@@ -105,25 +105,25 @@ main() {
         if [[ -n "$modified_args" ]] && [[ "$modified_args" != "$tool_args" ]]; then
             log_injection_event "context_injected" "added_files:$files_added"
             
-            # Update the input JSON with modified tool_input
+            # 使用修改后的 tool_input 更新输入 JSON
             local output_json=$(echo "$INPUT_JSON" | jq --argjson new_args "$modified_args" '.tool_input = $new_args')
             
-            # Return the modified input to stdout
+            # 将修改后的输入返回到标准输出
             echo "$output_json"
             exit 0
         else
             log_injection_event "error" "failed_to_modify_arguments"
-            # Continue without modification on error
+            # 出错时继续执行而不进行修改
             echo '{"continue": true}'
             exit 0
         fi
     else
         log_injection_event "existing_session" "session_id:$session_id"
-        # For existing sessions, continue without modification
+        # 对于现有会话，继续执行而不进行修改
         echo '{"continue": true}'
         exit 0
     fi
 }
 
-# Run main function
+# 运行主函数
 main
